@@ -1,4 +1,4 @@
-package com.app.pa_resident_app;
+package com.app.pa_resident_dev;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
@@ -13,7 +13,7 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "app.pa_resident_app";
+    return "app.pa_resident_dev";
   }
 
   /**
