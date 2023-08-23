@@ -12,11 +12,36 @@ import React, { useEffect, useState } from 'react';
 import notifee, { AuthorizationStatus } from '@notifee/react-native';
 import messaging from '@react-native-firebase/messaging';
 import { onDisplayNotificationFun } from './src/utils/notificationHandler';
-
+import useWebSocket from "react-use-websocket";
+import WebRTC from "./src/screen/WebRTC";
 import WebScreen from "./src/screen/webScreen";
+import { Text, TouchableOpacity } from 'react-native';
 const App = () => {
 
   const [token, setToken] = useState("");
+
+  useEffect(() => {
+    const ws = new WebSocket('ws://216.48.187.180:6600');
+
+    ws.onopen = () => {
+      // Connection opened
+      console.log('WebSocket connection opened');
+      ws.send('Hello, server!'); // Send a message to the server
+    };
+    
+    ws.onmessage = (e) => {
+      // Receive a message from the server
+      console.log(e);
+    };
+    ws.onerror = (e) => {
+      // An error occurred
+      console.log(e.message);
+    };
+    ws.onclose = (e) => {
+      // Connection closed
+      console.log(e.code, e.reason);
+    };
+  }, []);
 
   useEffect(() => {
     setupNotifications();
@@ -43,7 +68,7 @@ const App = () => {
   const setupFCM = async () => {
     // Get the FCM token for this device
     const token = await messaging().getToken();
-    console.log('FCM Token:', token);
+    // console.log('FCM Token:', token);
     setToken(token);
 
     // Listen for incoming FCM messages when the app is in the foreground
@@ -54,7 +79,7 @@ const App = () => {
 
     // Listen for incoming FCM messages when the app is in the background or terminated
     messaging().setBackgroundMessageHandler(async (message) => {
-        onDisplayNotificationFun(message);
+      onDisplayNotificationFun(message);
     });
 
 
@@ -71,7 +96,8 @@ const App = () => {
   };
 
   return (
-    <WebScreen diviceToken={token}/>
+    // <WebScreen diviceToken={token} />
+    <WebRTC />
   );
 };
 
