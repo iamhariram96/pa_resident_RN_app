@@ -1,486 +1,221 @@
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ *
+ * @format
+ * @flow strict-local
+ */
 
-// import React, { useEffect, useState } from 'react';
-// import { View, Text, StyleSheet, Button } from 'react-native';
-// import { RTCView, mediaDevices } from 'react-native-webrtc';
-
-// const WebRTC = () => {
-//   const [localStream, setLocalStream] = useState(null);
-
-//   useEffect(() => {
-//     const getCam = async () => {
-//       const devices = await mediaDevices?.enumerateDevices();
-//       const facing = 'front';
-//       const videoSourceId = devices.find(
-//         device => device.kind === 'videoinput' && device.facing === facing
-//       );
-//       const facingMode = 'user';
-//       const constraints = {
-//         audio: true,
-//         video: {
-//           mandatory: {
-//             minWidth: 500, // Provide your own width, height and frame rate here
-//             minHeight: 300,
-//             minFrameRate: 30,
-//           },
-//           facingMode,
-//           optional: videoSourceId ? [{ sourceId: videoSourceId }] : [],
-//         },
-//       };
-//       const newStream = await mediaDevices.getUserMedia(constraints);
-//       setLocalStream(newStream);
-//     };
-//     getCam();
-//   }, []);
-
-//   return (
-//     <View style={styles.container}>
-      // <RTCView
-      //   streamURL={localStream && localStream.toURL()}
-      //   style={styles.rtcView}
-      // />
-//     </View>
-//   );
-// };
-
-
-
-// export default WebRTC;
-
-import React, { useEffect, useRef, useState } from 'react';
-import { View, Button, TouchableOpacity, Text, StyleSheet } from 'react-native';
-import { RTCPeerConnection, mediaDevices, RTCView } from 'react-native-webrtc';
-
+import React, { useEffect, useState, useRef } from 'react';
+import {
+  Button,
+  SafeAreaView,
+  StyleSheet,
+  ScrollView,
+  View,
+  Text,
+  StatusBar,
+} from 'react-native';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
+import { mediaDevices, RTCView, RTCPeerConnection, RTCIceCandidate, RTCSessionDescription } from 'react-native-webrtc';
 
 const WebRTC = () => {
+
   const ws = useRef(new WebSocket('ws://216.48.187.180:6600'));
-  const configuration = { iceServers: [
-    {
-      urls: [
-        'stun:stun1.l.google.com:19302',
-        'stun:stun2.l.google.com:19302',
-      ],
-    },
-  ],
-  iceCandidatePoolSize: 10, };
-  const pc = useRef(new RTCPeerConnection(configuration));
-  const cameraRef = useRef(null);
-  const [localStream, setLocalStream] = useState(null);
+  const pc = useRef(new RTCPeerConnection()); // Ref for PeerConnection
+
+  const [loaclStream, setLocalStream] = useState(null);
   const [remoteStream, setRemoteStream] = useState(null);
 
-  useEffect(() => {
-    // WebSocket event listeners
-    ws.current.onopen = () => {
-      console.log('WebSocket connection opened');
-    };
-
-    ws.current.onmessage = (event) => {
-      const message = JSON.parse(event.data);
-      handleSignalingData(message);
-    };
-
-    ws.current.onclose = () => {
-      console.log('WebSocket connection closed');
-    };
-
-    // ... (Media stream setup and WebRTC event listeners)
-  }, []);
-
-  const setupStream = async () => {
-    try {
-      const stream = await mediaDevices.getUserMedia({ audio: true, video: true });
-
-      console.log(JSON.stringify(stream)  + ' stream data');
-
-      // console.log(localStream.toURL()  + ' localStream.toURL()');
-      setLocalStream(stream);
-      stream.getTracks().forEach(track => {
-        pc.current.addTrack(track, stream);
-      });
-      if (cameraRef.current) {
-        cameraRef.current.srcObject = stream;
-      }
-    } catch (error) {
-      console.error('Error setting up media stream:', error);
-    }
+  const configuration = {
+    iceServers: [
+      {
+        urls: [
+          'stun:stun1.l.google.com:19302',
+          'stun:stun2.l.google.com:19302',
+        ],
+      },
+    ],
+    iceCandidatePoolSize: 10,
   };
-  
-  useEffect(() => {
-    // Set up event listeners for ICE candidates and remote tracks
-    pc.current.onicecandidate = handleICECandidate;
-    pc.current.ontrack = handleTrack;
 
+  pc.current.ontrack = function ({ streams: [stream] }) {
+    // Set the remote stream state
+    console.log(stream + ' 3 stream');
+    setRemoteStream(stream);
+  };
+
+useEffect(() => {
+  ws.current.onopen = () => {
+    console.log('WebSocket connection opened');
+  };
+
+  ws.current.onmessage = (event) => {
+    const message = JSON.parse(event.data);
+    handleSignalingData(message);
+  };
+
+  ws.current.onclose = () => {
+    console.log('WebSocket connection closed');
+  };
+
+  ws.current.onerror = (error) => {
+    console.error('WebSocket error:', error);
+  }
+
+  // ws.current.send(JSON.stringify({ 'create or join': 'test' }));
+}, []);
+
+  useEffect(() => {
+    const Camstart = async () => {
+      if (!loaclStream) {
+        // let s;
+        try {
+          mediaDevices.getUserMedia({ audio: true, video: true, }).then((stream) => {
+            console.log(JSON.stringify(stream) + ' 2 stream');
+            setLocalStream(stream);
+          });
+        } catch (e) {
+          console.error(e);
+        }
+      }
+
+    };
+
+    // Set up PeerConnection
     pc.current = new RTCPeerConnection(configuration);
-    
-    // Set up the local media stream
-    setupLocalStream();
+
+    Camstart();
   }, []);
-
-  const setupLocalStream = async () => {
-    try {
-      const local = await mediaDevices.getUserMedia({
-        video: true,
-        audio: true,
-      });
-      // pc.current.addStream(local);
-      const mediaStream = await mediaDevices.getUserMedia({ audio: true, video: true });
-          
-      // Add audio and video tracks to the peer connection
-      mediaStream.getTracks().forEach(track => {
-        pc.current.addTrack(track, mediaStream);
-      });
-
-      const stream = await mediaDevices.getUserMedia({ audio: true, video: true });
-
-      setLocalStream(stream);
-      stream.getTracks().forEach(track => {
-        pc.current.addTrack(track, stream);
-        
-      });
-      if (cameraRef.current) {
-        cameraRef.current.srcObject = stream;
-      }
-    } catch (error) {
-      console.error('Error setting up local media stream:', error);
-    }
-  };
-
 
   const handleICECandidate = event => {
     if (event.candidate) {
-      // Send the ICE candidate to the remote peer (using your signaling mechanism)
-      // For example, you might use WebSocket to send the ICE candidate
-      sendSignalingData({ iceCandidate: event.candidate });
+      // Send ICE candidate data through WebSocket
+      ws.current.send(JSON.stringify({ iceCandidate: event.candidate }));
     }
   };
-
-  const handleTrack = event => {
-    // Handle remote tracks here
-    if (event.track.kind === 'video' || event.track.kind === 'audio') {
-      setRemoteStream(event.streams[0]);
-    }
-  };
-
-  const sendSignalingData = data => {
-    // Send the signaling data to the remote peer (using your signaling mechanism)
-    // For example, you might use WebSocket to send the signaling data
-    ws.current.send(JSON.stringify(data));
-  };
-  useEffect(() => {
-    setupStream();
-  }, []);
-
-  // ... (handleSignalingData function)
 
   const handleSignalingData = (data) => {
     // Handle signaling data received through WebSocket
-    if (data.sdp) {
-      pc.current.setRemoteDescription(new RTCSessionDescription(data.sdp))
-        .then(() => {
-          if (data.sdp.type === 'offer') {
-            // Create answer
-            pc.current.createAnswer()
-              .then((answer) => {
-                pc.current.setLocalDescription(answer);
-                // Send answer through WebSocket
-                ws.current.send(JSON.stringify({ sdp: answer }));
-              })
-              .catch((error) => console.error('Error creating answer', error));
-          }
-        })
-        .catch((error) => console.error('Error setting remote description', error));
-    } else if (data.iceCandidate) {
-      // Add received ICE candidate to peer connection
-      pc.current.addIceCandidate(new RTCIceCandidate(data.iceCandidate))
-        .catch((error) => console.error('Error adding ICE candidate', error));
+      if (data.sdp) {
+        pc.current.setRemoteDescription(new RTCSessionDescription(data.sdp))
+          .then(() => {
+            if (data.sdp.type === 'offer') {
+              pc.current.createAnswer().then((answer) => {
+                  pc.current.setLocalDescription(answer);
+                  ws.current.send(JSON.stringify({ sdp: answer }));
+                })
+                .catch((error) => console.error('Error creating answer', error));
+            }
+          })
+          .catch((error) => console.error('Error setting remote description', error));
+      } else if (data.iceCandidate) {
+        pc.current.addIceCandidate(new RTCIceCandidate(data.iceCandidate)).catch((error) => console.error('Error adding ICE candidate', error));
+      }
+    else if (data.remoteStream) {
+      try {
+        // Parse the remote stream data if it's a JSON string
+        const parsedRemoteStream = JSON.parse(data.remoteStream);
+
+        // Create a new MediaStream object and add tracks to it
+        const newRemoteStream = new MediaStream();
+        parsedRemoteStream.tracks.forEach(trackInfo => {
+          const newTrack = new RTCRtpReceiver().track;
+          newTrack.enabled = true;
+          newTrack.id = trackInfo.id;
+          newRemoteStream.addTrack(newTrack);
+        });
+
+        // Update the remote stream state
+        setRemoteStream(newRemoteStream);
+      } catch (error) {
+        console.error('Error parsing or handling remote stream data:', error);
+      }
     }
   };
-  
-  // }
-  const LocalStream = () => {
-    if(localStream?.toURL().length > 0) {
-      return (
-          <RTCView
-            streamURL={localStream && localStream.toURL()}
-            style={styles.rtcView}
-            mirror
-            objectFit="cover"
-          />
-      )
-    } else{
-      return <Text>no LocalStream</Text>
-    } 
-  }
 
-  const RemoteStream = () => {
-    if(remoteStream?.toURL().length > 0) {
-      return (
-        <RTCView streamURL={remoteStream && remoteStream.toURL()} 
-          style={styles.rtcView}
-          mirror
-          objectFit="cover"
-        />
-      )
-    } else{
-      return <Text>no RemoteStream</Text>
+  useEffect(() => {
+    // Set up event listeners for ICE candidates and remote tracks
+    pc.current.onicecandidate = handleICECandidate;
+  }, []);
+  const start = async () => {
+    console.log('start');
+    if (!loaclStream) {
+      let s;
+      try {
+        s = await mediaDevices.getUserMedia({ audio: true, video: true, });
+        setLocalStream(s);
+      } catch (e) {
+        console.error(e);
+      }
     }
-  }
+  };
+  const stop = () => {
+    console.log('stop');
+    if (loaclStream) {
+      stream.release();
+      setLocalStream(false);
+      console.log(JSON.stringify(loaclStream) + ' 1 stream');
+    }
+  };
   return (
     <>
-      <View
-        style={{
-        flex: 1,
-          padding: 20,
-        }}>
-        <View style={{backgroundColor: 'pink', flex: 1}} >
-          <LocalStream />
+      <StatusBar barStyle="dark-content" />
+      <SafeAreaView style={styles.body}>
+        {
+          <View style={styles.loaclStream}>
+            {loaclStream ? (
+              <RTCView
+                streamURL={loaclStream.toURL()}
+                style={styles.stream}
+                objectFit="cover"
+                mirror={true}
+              />
+            ) : (<View><Text>Waiting for Local stream ...</Text></View>)}
+          </View>
+        }
+        {
+          <View style={styles.stream}>
+            {remoteStream ? (
+              <RTCView
+                streamURL={remoteStream.toURL()}
+                style={styles.stream}
+                objectFit="cover"
+                mirror={true}
+              />
+            ) : (<View><Text>Waiting for Peer connection ...</Text></View>)}
+          </View>
+        }
+        <View
+          style={styles.footer}>
+          <Button
+            title="Start"
+            onPress={start} />
+          <Button
+            title="Stop"
+            onPress={stop} />
         </View>
-        <View style={{backgroundColor: 'yellow', flex: 1}} >
-          <RemoteStream />
-        </View>
-      </View>
+      </SafeAreaView>
     </>
   );
 };
 
 const styles = StyleSheet.create({
-  rtcView: {
+  body: {
+    backgroundColor: Colors.white,
+    ...StyleSheet.absoluteFill
+  },
+  loaclStream: {
     flex: 1,
+    paddingBottom: 20
+  },
+  stream: {
+    flex: 1,
+  },
+  footer: {
+    paddingTop: 0,
+    backgroundColor: Colors.lighter,
   },
 });
 
 export default WebRTC;
-
-
-// import React, {useRef} from 'react';
-
-// import {
-//   Button,
-//   KeyboardAvoidingView,
-//   SafeAreaView,
-//   StyleSheet,
-//   TextInput,
-//   View,
-// } from 'react-native';
-
-// import {
-//   RTCPeerConnection,
-//   RTCIceCandidate,
-//   RTCSessionDescription,
-//   RTCView,
-//   MediaStream,
-//   mediaDevices,
-// } from 'react-native-webrtc';
-// import {useState} from 'react';
-
-// import firestore from '@react-native-firebase/firestore';
-
-// const WebRTC = () => {
-//   const [remoteStream, setRemoteStream] = useState(null);
-//   const [webcamStarted, setWebcamStarted] = useState(false);
-//   const [localStream, setLocalStream] = useState(null);
-//   const [channelId, setChannelId] = useState(null);
-//   const pc = useRef();
-//   const servers = {
-//     iceServers: [
-//       {
-//         urls: [
-//           'stun:stun1.l.google.com:19302',
-//           'stun:stun2.l.google.com:19302',
-//         ],
-//       },
-//     ],
-//     iceCandidatePoolSize: 10,
-//   };
-
-//   const startWebcam = async () => {
-//     pc.current = new RTCPeerConnection(servers);
-//     const local = await mediaDevices.getUserMedia({
-//       video: true,
-//       audio: true,
-//     });
-//     // pc.current.addStream(local);
-//     const mediaStream = await mediaDevices.getUserMedia({ audio: true, video: true });
-        
-//     // Add audio and video tracks to the peer connection
-//     mediaStream.getTracks().forEach(track => {
-//       pc.current.addTrack(track, mediaStream);
-//     });
-//     setLocalStream(local);
-//     const remote = new MediaStream();
-//     setRemoteStream(remote);
-
-//     // Push tracks from local stream to peer connection
-//     // local.getTracks().forEach(track => {
-//       // console.log(pc.current.getLocalStreams());
-//       pc.current.getSenders().forEach(sender => {
-//         mediaStream.getTracks().forEach(track => {
-//           if (track.kind === sender.track.kind) {
-//             sender.replaceTrack(track);
-//           }
-//         });
-//       });
-//     // });
-
-//     // Pull tracks from remote stream, add to video stream
-//     pc.current.ontrack = event => {
-//       event.streams[0].getTracks().forEach(track => {
-//         remote.addTrack(track);
-//       });
-//     };
-
-//     pc.current.onaddstream = event => {
-//       setRemoteStream(event.stream);
-//     };
-
-//     setWebcamStarted(true);
-//   };
-
-//   const startCall = async () => {
-//     const channelDoc = firestore().collection('channels').doc();
-//     const offerCandidates = channelDoc.collection('offerCandidates');
-//     const answerCandidates = channelDoc.collection('answerCandidates');
-
-//     setChannelId(channelDoc.id);
-
-//     pc.current.onicecandidate = async event => {
-//       if (event.candidate) {
-//         await offerCandidates.add(event.candidate.toJSON());
-//       }
-//     };
-
-//     //create offer
-//     const offerDescription = await pc.current.createOffer();
-//     await pc.current.setLocalDescription(offerDescription);
-
-//     const offer = {
-//       sdp: offerDescription.sdp,
-//       type: offerDescription.type,
-//     };
-
-//     await channelDoc.set({offer});
-
-//     // Listen for remote answer
-//     channelDoc.onSnapshot(snapshot => {
-//       const data = snapshot.data();
-//       if (!pc.current.currentRemoteDescription && data?.answer) {
-//         const answerDescription = new RTCSessionDescription(data.answer);
-//         pc.current.setRemoteDescription(answerDescription);
-//       }
-//     });
-
-//     // When answered, add candidate to peer connection
-//     answerCandidates.onSnapshot(snapshot => {
-//       snapshot.docChanges().forEach(change => {
-//         if (change.type === 'added') {
-//           const data = change.doc.data();
-//           pc.current.addIceCandidate(new RTCIceCandidate(data));
-//         }
-//       });
-//     });
-//   };
-
-//   const joinCall = async () => {
-//     const channelDoc = firestore().collection('channels').doc(channelId);
-//     const offerCandidates = channelDoc.collection('offerCandidates');
-//     const answerCandidates = channelDoc.collection('answerCandidates');
-
-//     pc.current.onicecandidate = async event => {
-//       if (event.candidate) {
-//         await answerCandidates.add(event.candidate.toJSON());
-//       }
-//     };
-
-//     const channelDocument = await channelDoc.get();
-//     const channelData = channelDocument.data();
-
-//     const offerDescription = channelData.offer;
-
-//     await pc.current.setRemoteDescription(
-//       new RTCSessionDescription(offerDescription),
-//     );
-
-//     const answerDescription = await pc.current.createAnswer();
-//     await pc.current.setLocalDescription(answerDescription);
-
-//     const answer = {
-//       type: answerDescription.type,
-//       sdp: answerDescription.sdp,
-//     };
-
-//     await channelDoc.update({answer});
-
-//     offerCandidates.onSnapshot(snapshot => {
-//       snapshot.docChanges().forEach(change => {
-//         if (change.type === 'added') {
-//           const data = change.doc.data();
-//           pc.current.addIceCandidate(new RTCIceCandidate(data));
-//         }
-//       });
-//     });
-//   };
-
-//   return (
-//     <KeyboardAvoidingView style={styles.body} behavior="position">
-//       <SafeAreaView>
-//         {localStream && (
-//           <RTCView
-//             stream={localStream}
-//             style={styles.stream}
-//             objectFit="cover"
-//             mirror
-//           />
-//         )}
-
-//         {remoteStream && (
-//           <RTCView
-//             streamURL={remoteStream?.toURL()}
-//             style={styles.stream}
-//             objectFit="cover"
-//             mirror
-//           />
-//         )}
-//         <View style={styles.buttons}>
-//           {!webcamStarted && (
-//             <Button title="Start webcam" onPress={startWebcam} />
-//           )}
-//           {webcamStarted && <Button title="Start call" onPress={startCall} />}
-//           {webcamStarted && (
-//             <View style={{flexDirection: 'row'}}>
-//               <Button title="Join call" onPress={joinCall} />
-//               <TextInput
-//                 value={channelId}
-//                 placeholder="callId"
-//                 minLength={45}
-//                 style={{borderWidth: 1, padding: 5}}
-//                 onChangeText={newText => setChannelId(newText)}
-//               />
-//             </View>
-//           )}
-//         </View>
-//       </SafeAreaView>
-//     </KeyboardAvoidingView>
-//   );
-// };
-
-// const styles = StyleSheet.create({
-//   body: {
-//     backgroundColor: '#fff',
-
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//     ...StyleSheet.absoluteFill,
-//   },
-//   stream: {
-//     flex: 2,
-//     width: 200,
-//     height: 100,
-//   },
-//   buttons: {
-//     alignItems: 'flex-start',
-//     flexDirection: 'column',
-//   },
-// });
-
-// export default WebRTC;
-
-
