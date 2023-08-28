@@ -12,6 +12,7 @@ import React, { useEffect, useState } from 'react';
 import notifee, { AuthorizationStatus } from '@notifee/react-native';
 import messaging from '@react-native-firebase/messaging';
 import { onDisplayNotificationFun } from './src/utils/notificationHandler';
+import { firebase } from '@react-native-firebase/app';
 
 import WebScreen from "./src/screen/webScreen";
 const App = () => {
@@ -24,9 +25,11 @@ const App = () => {
   }, []);
 
   const setupNotifications = async () => {
-    // Check if the app has been granted notification permissions
+    // Check if the app has been granted notification permissions    
+    
     const settings = await notifee.getNotificationSettings();
     await notifee.requestPermission();
+    // await messaging().registerDeviceForRemoteMessages();
 
     if (settings.authorizationStatus === AuthorizationStatus.NOT_DETERMINED) {
       // Ask for notification permission if it's not determined yet
@@ -42,9 +45,14 @@ const App = () => {
 
   const setupFCM = async () => {
     // Get the FCM token for this device
-    const token = await messaging().getToken();
-    console.log('FCM Token:', token);
-    setToken(token);
+    // 
+    const enabled = await firebase.messaging().hasPermission();
+
+    if (enabled) {
+      const token = await messaging().getToken();
+      console.log('FCM Token:', token);
+      setToken(token);
+    }
 
     // Listen for incoming FCM messages when the app is in the foreground
     messaging().onMessage(async (message) => {

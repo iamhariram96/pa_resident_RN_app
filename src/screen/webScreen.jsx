@@ -38,7 +38,7 @@ const WebScreen = (props) => {
             return <WebView
                 injectedJavaScript={INJECTED_JAVASCRIPT}
                 onMessage={onMessage}
-                source={{ uri: `https://dev-resident-v3.propertyautomate.com/login/?deviceToken=${diviceToken}` }} style={{ marginTop: 20 }} />
+                source={{ uri: `https://resident.pms2.propgoto.com/login/?deviceToken=${diviceToken}` }} style={{ marginTop: 20 }} />
         } else {
             return <ActivityIndicator size="large" />
         }

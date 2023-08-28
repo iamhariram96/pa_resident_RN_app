@@ -1,3 +1,6 @@
+
+#import <Firebase.h>
+
 #import "AppDelegate.h"
 
 #import <React/RCTBundleURLProvider.h>
@@ -6,7 +9,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  self.moduleName = @"app.pa_resident_dev";
+  if ([FIRApp defaultApp] == nil) {
+    [FIRApp configure];
+  }
+  self.moduleName = @"com.app.pa-resident";
   // You can add your custom initial props in the dictionary below.
   // They will be passed down to the ViewController used by React Native.
   self.initialProps = @{};

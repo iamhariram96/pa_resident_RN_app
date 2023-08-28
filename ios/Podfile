@@ -30,8 +30,9 @@ if linkage != nil
   use_frameworks! :linkage => linkage.to_sym
 end
 
-target 'app.pa_resident_dev' do
+target 'com.app.pa-resident' do
   config = use_native_modules!
+  use_frameworks! :linkage => :static
 
   # Flags change depending on the env values.
   flags = get_default_flags()
@@ -50,7 +51,7 @@ target 'app.pa_resident_dev' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
-  target 'app.pa_resident_devTests' do
+  target 'com.app.pa-residentTests' do
     inherit! :complete
     # Pods for testing
   end
