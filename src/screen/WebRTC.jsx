@@ -1,221 +1,197 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
+// /**
+//  * Sample React Native App
+//  * https://github.com/facebook/react-native
+//  *
+//  * @format
+//  * @flow strict-local
+//  */
 
-import React, { useEffect, useState, useRef } from 'react';
-import {
-  Button,
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
-import { mediaDevices, RTCView, RTCPeerConnection, RTCIceCandidate, RTCSessionDescription } from 'react-native-webrtc';
+import React, { useState, useEffect, useRef } from 'react';
+import { View, Button, StatusBar, SafeAreaView, StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { RTCView, mediaDevices, RTCPeerConnection, RTCSessionDescription } from 'react-native-webrtc';
+import WebSocket from 'isomorphic-ws'; // For WebSocket support
+import FullScreenIcon from '../icons/FullScreen';
 
 const WebRTC = () => {
-
-  const ws = useRef(new WebSocket('ws://216.48.187.180:6600'));
-  const pc = useRef(new RTCPeerConnection()); // Ref for PeerConnection
-
-  const [loaclStream, setLocalStream] = useState(null);
+  const [localStream, setLocalStream] = useState(null);
   const [remoteStream, setRemoteStream] = useState(null);
-
-  const configuration = {
-    iceServers: [
-      {
-        urls: [
-          'stun:stun1.l.google.com:19302',
-          'stun:stun2.l.google.com:19302',
-        ],
-      },
-    ],
-    iceCandidatePoolSize: 10,
-  };
-
-  pc.current.ontrack = function ({ streams: [stream] }) {
-    // Set the remote stream state
-    console.log(stream + ' 3 stream');
-    setRemoteStream(stream);
-  };
-
-useEffect(() => {
-  ws.current.onopen = () => {
-    console.log('WebSocket connection opened');
-  };
-
-  ws.current.onmessage = (event) => {
-    const message = JSON.parse(event.data);
-    handleSignalingData(message);
-  };
-
-  ws.current.onclose = () => {
-    console.log('WebSocket connection closed');
-  };
-
-  ws.current.onerror = (error) => {
-    console.error('WebSocket error:', error);
-  }
-
-  // ws.current.send(JSON.stringify({ 'create or join': 'test' }));
-}, []);
+  const ws = useRef(new WebSocket('ws://216.48.187.180:6600'));
+  const peerConnectionRef = useRef(null); // Ref for PeerConnection
 
   useEffect(() => {
-    const Camstart = async () => {
-      if (!loaclStream) {
-        // let s;
-        try {
-          mediaDevices.getUserMedia({ audio: true, video: true, }).then((stream) => {
-            console.log(JSON.stringify(stream) + ' 2 stream');
-            setLocalStream(stream);
-          });
-        } catch (e) {
-          console.error(e);
-        }
-      }
 
+    Promise.all([
+      setupWebSocket(),
+      setupLocalStream(),
+      initializePeerConnection(),
+    ]).then(()=> {});
+    
+  }, []);
+
+  const setupWebSocket = () => {
+    ws.current.onopen = () => {
+      console.log('WebSocket connected');
     };
 
-    // Set up PeerConnection
-    pc.current = new RTCPeerConnection(configuration);
+    ws.current.onmessage = (event) => {
+      handleSignalingData(JSON.parse(event.data));
+    };
 
-    Camstart();
-  }, []);
-
-  const handleICECandidate = event => {
-    if (event.candidate) {
-      // Send ICE candidate data through WebSocket
-      ws.current.send(JSON.stringify({ iceCandidate: event.candidate }));
-    }
+    ws.current.onclose = () => {
+      console.log('WebSocket closed');
+    };
   };
 
-  const handleSignalingData = (data) => {
-    // Handle signaling data received through WebSocket
-      if (data.sdp) {
-        pc.current.setRemoteDescription(new RTCSessionDescription(data.sdp))
-          .then(() => {
-            if (data.sdp.type === 'offer') {
-              pc.current.createAnswer().then((answer) => {
-                  pc.current.setLocalDescription(answer);
-                  ws.current.send(JSON.stringify({ sdp: answer }));
-                })
-                .catch((error) => console.error('Error creating answer', error));
-            }
-          })
-          .catch((error) => console.error('Error setting remote description', error));
-      } else if (data.iceCandidate) {
-        pc.current.addIceCandidate(new RTCIceCandidate(data.iceCandidate)).catch((error) => console.error('Error adding ICE candidate', error));
+  const setupLocalStream = async () => {
+    const stream = await mediaDevices.getUserMedia({ audio: true, video: true });
+    setLocalStream(stream);
+  };
+
+  const initializePeerConnection = () => {
+    const configuration = { iceServers: [] };
+    peerConnectionRef.current = new RTCPeerConnection(configuration);
+
+    peerConnectionRef.current.onicecandidate = (event) => {
+      if (event.candidate) {
+        sendData({ candidate: event.candidate });
       }
-    else if (data.remoteStream) {
+    };
+
+    peerConnectionRef.current.ontrack = (event) => {
+      // Handle incoming tracks and set remote stream
+      if (event.streams && event.streams[0]) {
+        setRemoteStream(event.streams[0]);
+      }
+    };
+  };
+
+  const handleSignalingData = async (data) => {
+    if (data.description) {
+      const remoteDescription = new RTCSessionDescription(data.description);
+      await peerConnectionRef.current.setRemoteDescription(remoteDescription);
+
+      if (data.description.type === 'offer') {
+        const answer = await peerConnectionRef.current.createAnswer();
+        await peerConnectionRef.current.setLocalDescription(answer);
+
+        sendData({ description: peerConnectionRef.current.localDescription });
+      }
+    } else if (data.candidate) {
       try {
-        // Parse the remote stream data if it's a JSON string
-        const parsedRemoteStream = JSON.parse(data.remoteStream);
-
-        // Create a new MediaStream object and add tracks to it
-        const newRemoteStream = new MediaStream();
-        parsedRemoteStream.tracks.forEach(trackInfo => {
-          const newTrack = new RTCRtpReceiver().track;
-          newTrack.enabled = true;
-          newTrack.id = trackInfo.id;
-          newRemoteStream.addTrack(newTrack);
-        });
-
-        // Update the remote stream state
-        setRemoteStream(newRemoteStream);
+        await peerConnectionRef.current.addIceCandidate(data.candidate);
       } catch (error) {
-        console.error('Error parsing or handling remote stream data:', error);
+        console.error('Error adding ICE candidate:', error);
       }
     }
   };
 
-  useEffect(() => {
-    // Set up event listeners for ICE candidates and remote tracks
-    pc.current.onicecandidate = handleICECandidate;
-  }, []);
-  const start = async () => {
-    console.log('start');
-    if (!loaclStream) {
-      let s;
-      try {
-        s = await mediaDevices.getUserMedia({ audio: true, video: true, });
-        setLocalStream(s);
-      } catch (e) {
-        console.error(e);
-      }
-    }
+  const sendData = (data) => {
+    ws.current.send(JSON.stringify(data));
   };
-  const stop = () => {
-    console.log('stop');
-    if (loaclStream) {
-      stream.release();
-      setLocalStream(false);
-      console.log(JSON.stringify(loaclStream) + ' 1 stream');
-    }
+
+  const startCall = async () => {
+
+    localStream.getTracks().forEach(track => {
+      peerConnectionRef.current.addTrack(track, localStream);
+    });
+
+    const offer = await peerConnectionRef.current.createOffer();
+    await peerConnectionRef.current.setLocalDescription(offer);
+
+    sendData({ description: peerConnectionRef.current.localDescription });
   };
+
+  const WaitingComponent = () => {
+    return (
+      <View style={styles.remoteStyle}>
+        <Text style={{color:"#000"}}>
+          Waiting for connection ...
+        </Text>
+      </View>
+    )
+  }
   return (
     <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView style={styles.body}>
-        {
-          <View style={styles.loaclStream}>
-            {loaclStream ? (
-              <RTCView
-                streamURL={loaclStream.toURL()}
-                style={styles.stream}
-                objectFit="cover"
-                mirror={true}
-              />
-            ) : (<View><Text>Waiting for Local stream ...</Text></View>)}
-          </View>
-        }
-        {
-          <View style={styles.stream}>
-            {remoteStream ? (
-              <RTCView
-                streamURL={remoteStream.toURL()}
-                style={styles.stream}
-                objectFit="cover"
-                mirror={true}
-              />
-            ) : (<View><Text>Waiting for Peer connection ...</Text></View>)}
-          </View>
-        }
-        <View
-          style={styles.footer}>
-          <Button
-            title="Start"
-            onPress={start} />
-          <Button
-            title="Stop"
-            onPress={stop} />
-        </View>
-      </SafeAreaView>
-    </>
+       <StatusBar barStyle="dark-content" />
+       <SafeAreaView style={styles.body}>
+         {
+           <View style={styles.loaclStream}>
+             {localStream ? (
+              <View style={{flex: 1}}>
+                <View style={{position: "absolute", top: 0, right: 0, zIndex: 1, padding: 16}}>
+                  <FullScreenIcon color={"#fff"} width={20} height={20}/>
+                </View> 
+               <RTCView
+                 streamURL={localStream && localStream.toURL()}
+                 style={styles.stream}
+                 objectFit="cover"
+                 mirror={true}
+               />
+               </View>
+             ) : (<View><Text>Waiting for Local stream ...</Text></View>)}
+           </View>
+         }
+         {
+           <View style={styles.stream}>
+             {remoteStream ? (
+              <View>
+                <RTCView
+                  streamURL={remoteStream && remoteStream.toURL()}
+                  style={styles?.stream}
+                  objectFit="cover"
+                  mirror={true}
+                />
+              </View>
+             ) : <WaitingComponent/>}
+           </View>
+         }
+         <View
+           style={styles.footer}>
+           <Button
+             title="Start"
+             onPress={startCall} />
+           {/* <Button
+             title="Stop"
+             onPress={stop} /> */}
+         </View>
+       </SafeAreaView>
+     </>
+    //  <View>
+    //   <RTCView streamURL={localStream && localStream.toURL()} style={{ width: 200, height: 150 }} />
+    //   <RTCView streamURL={remoteStream && remoteStream.toURL()} style={{ width: 200, height: 150 }} />
+    //   <Button title="Start Call" onPress={startCall} />
+    // </View>
   );
 };
 
+export default WebRTC;
+
 const styles = StyleSheet.create({
   body: {
-    backgroundColor: Colors.white,
+    backgroundColor: "#fff",
     ...StyleSheet.absoluteFill
   },
   loaclStream: {
-    flex: 1,
-    paddingBottom: 20
+    position: "absolute",
+    width: 170,
+    height: 250,
+    zIndex: 1,
+    bottom: 37,
+    right: 0,
+    
   },
   stream: {
     flex: 1,
   },
   footer: {
     paddingTop: 0,
-    backgroundColor: Colors.lighter,
+    backgroundColor: "blue",
   },
+  remoteStyle:{
+    color: "#000",
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    borderStartColor :"yellow",
+  }
 });
-
-export default WebRTC;
