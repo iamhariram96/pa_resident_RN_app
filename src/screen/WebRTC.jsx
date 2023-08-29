@@ -7,7 +7,7 @@
 //  */
 
 import React, { useState, useEffect, useRef } from 'react';
-import { View, Button, StatusBar, SafeAreaView, StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { View, Button, StatusBar, SafeAreaView, StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
 import { RTCView, mediaDevices, RTCPeerConnection, RTCSessionDescription } from 'react-native-webrtc';
 import WebSocket from 'isomorphic-ws'; // For WebSocket support
 import FullScreenIcon from '../icons/FullScreen';
@@ -15,6 +15,12 @@ import FullScreenIcon from '../icons/FullScreen';
 const WebRTC = () => {
   const [localStream, setLocalStream] = useState(null);
   const [remoteStream, setRemoteStream] = useState(null);
+  const [remoteAndLocalStream, setRemoteAndLocalStream] = useState({
+    screen: '1',
+    localStreamURl: null,
+    remoteStreamURl: null
+  });
+
   const ws = useRef(new WebSocket('ws://216.48.187.180:6600'));
   const peerConnectionRef = useRef(null); // Ref for PeerConnection
 
@@ -24,8 +30,8 @@ const WebRTC = () => {
       setupWebSocket(),
       setupLocalStream(),
       initializePeerConnection(),
-    ]).then(()=> {});
-    
+    ]).then(() => { });
+
   }, []);
 
   const setupWebSocket = () => {
@@ -45,6 +51,10 @@ const WebRTC = () => {
   const setupLocalStream = async () => {
     const stream = await mediaDevices.getUserMedia({ audio: true, video: true });
     setLocalStream(stream);
+    setRemoteAndLocalStream({
+      ...remoteAndLocalStream,
+      localStreamURl: stream,
+    });
   };
 
   const initializePeerConnection = () => {
@@ -61,6 +71,11 @@ const WebRTC = () => {
       // Handle incoming tracks and set remote stream
       if (event.streams && event.streams[0]) {
         setRemoteStream(event.streams[0]);
+
+        setRemoteAndLocalStream({
+          ...remoteAndLocalStream,
+          remoteStreamURl: event.streams[0],
+        });
       }
     };
   };
@@ -104,63 +119,79 @@ const WebRTC = () => {
   const WaitingComponent = () => {
     return (
       <View style={styles.remoteStyle}>
-        <Text style={{color:"#000"}}>
+        <Text style={{ color: "#000" }}>
           Waiting for connection ...
         </Text>
       </View>
     )
   }
+
+  const ScreenChange = () => {
+    if (remoteAndLocalStream.screen === '1') {
+      setRemoteAndLocalStream({
+        localStreamURl: remoteAndLocalStream.remoteStreamURl,
+        remoteStreamURl: remoteAndLocalStream.localStreamURl,
+        screen: '2'
+      });
+    } else {
+      setRemoteAndLocalStream({
+        localStreamURl: remoteAndLocalStream.remoteStreamURl,
+        remoteStreamURl: remoteAndLocalStream.localStreamURl,
+        screen: '1'
+      });
+    }
+  }
+
   return (
     <>
-       <StatusBar barStyle="dark-content" />
-       <SafeAreaView style={styles.body}>
-         {
-           <View style={styles.loaclStream}>
-             {localStream ? (
-              <View style={{flex: 1}}>
-                <View style={{position: "absolute", top: 0, right: 0, zIndex: 1, padding: 16}}>
-                  <FullScreenIcon color={"#fff"} width={20} height={20}/>
-                </View> 
-               <RTCView
-                 streamURL={localStream && localStream.toURL()}
-                 style={styles.stream}
-                 objectFit="cover"
-                 mirror={true}
-               />
-               </View>
-             ) : (<View><Text>Waiting for Local stream ...</Text></View>)}
-           </View>
-         }
-         {
-           <View style={styles.stream}>
-             {remoteStream ? (
-              <View>
-                <RTCView
-                  streamURL={remoteStream && remoteStream.toURL()}
-                  style={styles?.stream}
-                  objectFit="cover"
-                  mirror={true}
-                />
+      <StatusBar barStyle="dark-content" />
+      <SafeAreaView style={styles.body}>
+        <TouchableWithoutFeedback style={styles.stream}>
+          <View style={styles.stream}>
+            {
+              <View style={styles.loaclStream}>
+                {remoteAndLocalStream.localStreamURl ? (
+                  <View style={{ flex: 1 }}>
+                    <View style={styles.screenChangeIconView}>
+                      <TouchableOpacity onPress={() => ScreenChange()} style={styles.screenChange}>
+                        <FullScreenIcon color={"#fff"} width={15} height={15} />
+                      </TouchableOpacity>
+                    </View>
+                    <RTCView
+                      streamURL={remoteAndLocalStream.localStreamURl && remoteAndLocalStream.localStreamURl.toURL()}
+                      style={styles.stream}
+                      objectFit="cover"
+                      mirror={true}
+                    />
+                  </View>
+                ) : (<View><Text>Waiting for Local stream ...</Text></View>)}
               </View>
-             ) : <WaitingComponent/>}
-           </View>
-         }
-         <View
-           style={styles.footer}>
-           <Button
-             title="Start"
-             onPress={startCall} />
-           {/* <Button
-             title="Stop"
-             onPress={stop} /> */}
-         </View>
-       </SafeAreaView>
-     </>
-    //  <View>
-    //   <RTCView streamURL={localStream && localStream.toURL()} style={{ width: 200, height: 150 }} />
-    //   <RTCView streamURL={remoteStream && remoteStream.toURL()} style={{ width: 200, height: 150 }} />
-    //   <Button title="Start Call" onPress={startCall} />
-    // </View>
+            }
+            {
+              <View style={styles.stream}>
+                {remoteAndLocalStream.remoteStreamURl ? (
+                  <View style={{ flex: 1 }}>
+                    <RTCView
+                      streamURL={remoteAndLocalStream.remoteStreamURl && remoteAndLocalStream.remoteStreamURl.toURL()}
+                      style={styles?.stream}
+                      objectFit="cover"
+                      mirror={true}
+                    />
+                  </View>
+                ) : <WaitingComponent />}
+              </View>
+            }
+            {/*  */}
+          </View>
+        </TouchableWithoutFeedback>
+        <View style={styles.footer}>
+          <Button
+            title="Start"
+            onPress={startCall} 
+          />
+        </View>
+      </SafeAreaView>
+    </>
   );
 };
 
@@ -176,9 +207,8 @@ const styles = StyleSheet.create({
     width: 170,
     height: 250,
     zIndex: 1,
-    bottom: 37,
+    bottom: 0,
     right: 0,
-    
   },
   stream: {
     flex: 1,
@@ -187,11 +217,15 @@ const styles = StyleSheet.create({
     paddingTop: 0,
     backgroundColor: "blue",
   },
-  remoteStyle:{
+  remoteStyle: {
     color: "#000",
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    borderStartColor :"yellow",
-  }
+    borderStartColor: "yellow",
+  },
+  screenChange: {
+    backgroundColor: "#80808091", padding: 12, borderRadius: 60
+  },
+  screenChangeIconView: { position: "absolute", top: 0, right: 0, zIndex: 1, padding: 14 }
 });
