@@ -11,6 +11,11 @@ import { View, Button, StatusBar, SafeAreaView, StyleSheet, Text, TouchableOpaci
 import { RTCView, mediaDevices, RTCPeerConnection, RTCSessionDescription } from 'react-native-webrtc';
 import WebSocket from 'isomorphic-ws'; // For WebSocket support
 import FullScreenIcon from '../icons/FullScreen';
+import OffMic from '../icons/OffMic';
+import OnMic from '../icons/OnMic';
+import OnVideo from '../icons/OnVideo';
+import OffVideo from '../icons/OffVideo';
+import CallIcon from '../icons/CallIcon';
 
 const WebRTC = () => {
   const [localStream, setLocalStream] = useState(null);
@@ -119,7 +124,7 @@ const WebRTC = () => {
   const WaitingComponent = () => {
     return (
       <View style={styles.remoteStyle}>
-        <Text style={{ color: "#000" }}>
+        <Text style={{ color: "#fff" }}>
           Waiting for connection ...
         </Text>
       </View>
@@ -181,14 +186,33 @@ const WebRTC = () => {
                 ) : <WaitingComponent />}
               </View>
             }
-            {/*  */}
           </View>
         </TouchableWithoutFeedback>
         <View style={styles.footer}>
-          <Button
+
+          <TouchableOpacity style={styles?.Icons}>
+            <CallIcon width={26} height={26} color={"#fff"} />
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles?.Icons}>
+            <OffMic width={26} height={26} color={"#fff"} />
+          </TouchableOpacity>
+          <TouchableOpacity style={styles?.Icons}>
+            <OnMic width={26} height={26} color={"#fff"} />
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles?.Icons}>
+            <OnVideo width={26} height={26} color={"#fff"} />
+          </TouchableOpacity>
+          <TouchableOpacity style={styles?.Icons}>
+            <OffVideo width={26} height={26} color={"#fff"} />
+          </TouchableOpacity>
+
+
+          {/* <Button
             title="Start"
             onPress={startCall} 
-          />
+          /> */}
         </View>
       </SafeAreaView>
     </>
@@ -199,7 +223,7 @@ export default WebRTC;
 
 const styles = StyleSheet.create({
   body: {
-    backgroundColor: "#fff",
+    backgroundColor: "#000",
     ...StyleSheet.absoluteFill
   },
   loaclStream: {
@@ -215,7 +239,6 @@ const styles = StyleSheet.create({
   },
   footer: {
     paddingTop: 0,
-    backgroundColor: "blue",
   },
   remoteStyle: {
     color: "#000",
@@ -227,5 +250,8 @@ const styles = StyleSheet.create({
   screenChange: {
     backgroundColor: "#80808091", padding: 12, borderRadius: 60
   },
-  screenChangeIconView: { position: "absolute", top: 0, right: 0, zIndex: 1, padding: 14 }
+  screenChangeIconView: { position: "absolute", top: 0, right: 0, zIndex: 1, padding: 14 },
+  Icons: {
+    backgroundColor: "#80808091",
+  },
 });
