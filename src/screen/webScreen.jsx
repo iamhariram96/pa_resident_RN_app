@@ -5,6 +5,8 @@ import {
     StatusBar,
     StyleSheet,
     ActivityIndicator,
+    Text,
+    View
 } from 'react-native';
 
 import { WebView } from 'react-native-webview';
@@ -28,7 +30,7 @@ const INJECTED_JAVASCRIPT = `(function() {
 const WebScreen = (props) => {
     const { diviceToken } = props;
 
-    // console.log(`https://dev-resident-v3.propertyautomate.com/login/?deviceToken=${diviceToken}`+ ' diviceToken');
+    console.log(`https://resident.pms2.propgoto.com/login/?deviceToken=${diviceToken}`+ ' diviceToken');
     const onMessage = (payload) => {
         console.log('payload asses', payload);
     };
@@ -45,9 +47,10 @@ const WebScreen = (props) => {
     }
 
     return (
-        <SafeAreaView style={styles.container}>
+        <View style={styles.container}>
             <WebviewRender />
-        </SafeAreaView>
+            {/* <Text>hello</Text> */}
+        </View>
     );
 }
 
@@ -58,6 +61,6 @@ const styles = StyleSheet.create({
         flex: 1,
         marginTop: -StatusBar.currentHeight + 10,
         justifyContent: 'center',
-        backgroundColor: 'white',
+        backgroundColor: '#000',
     },
 });

@@ -7,6 +7,42 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:1085668111692:android:b72666f561328368ff0be9",
+        "android_client_info": {
+          "package_name": "com.app.pa_resident"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1085668111692-rlriqg8799bpp391dslp02g98jbrsfvu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOD3o0QKMxFRJlvJ7cbL8ZwBndtrGxiaY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1085668111692-rlriqg8799bpp391dslp02g98jbrsfvu.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1085668111692-en97v0d8t0gla2ml84vjj966ttkrju8f.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.app.pa-resident"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:1085668111692:android:ecb8c6d5badc999eff0be9",
         "android_client_info": {
           "package_name": "com.app.pa_resident_dev"
@@ -31,10 +67,10 @@
               "client_type": 3
             },
             {
-              "client_id": "1085668111692-vvqebf64lmevt37idu6f75ujofovdqbg.apps.googleusercontent.com",
+              "client_id": "1085668111692-en97v0d8t0gla2ml84vjj966ttkrju8f.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "org.reactjs.native.example.pa-resdent-dev"
+                "bundle_id": "com.app.pa-resident"
               }
             }
           ]
@@ -75,10 +111,10 @@
               "client_type": 3
             },
             {
-              "client_id": "1085668111692-vvqebf64lmevt37idu6f75ujofovdqbg.apps.googleusercontent.com",
+              "client_id": "1085668111692-en97v0d8t0gla2ml84vjj966ttkrju8f.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "org.reactjs.native.example.pa-resdent-dev"
+                "bundle_id": "com.app.pa-resident"
               }
             }
           ]
