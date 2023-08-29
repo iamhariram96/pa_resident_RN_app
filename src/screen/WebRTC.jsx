@@ -10,16 +10,28 @@ import React, { useState, useEffect, useRef } from 'react';
 import { View, Button, StatusBar, SafeAreaView, StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
 import { RTCView, mediaDevices, RTCPeerConnection, RTCSessionDescription } from 'react-native-webrtc';
 import WebSocket from 'isomorphic-ws'; // For WebSocket support
+
 import FullScreenIcon from '../icons/FullScreen';
 import OffMic from '../icons/OffMic';
 import OnMic from '../icons/OnMic';
 import OnVideo from '../icons/OnVideo';
 import OffVideo from '../icons/OffVideo';
 import CallIcon from '../icons/CallIcon';
+import ProfileIcon from '../icons/ProfileIcon';
+import SendCall from '../icons/SendCall';
+
+import * as Animatable from 'react-native-animatable';
+
 
 const WebRTC = () => {
   const [localStream, setLocalStream] = useState(null);
   const [remoteStream, setRemoteStream] = useState(null);
+
+  const [Mic, setMic] = useState(true);
+  const [Video, setVideo] = useState(true);
+
+  const [IconsShow, setIconsShow] = useState(true);
+
   const [remoteAndLocalStream, setRemoteAndLocalStream] = useState({
     screen: '1',
     localStreamURl: null,
@@ -119,11 +131,13 @@ const WebRTC = () => {
     await peerConnectionRef.current.setLocalDescription(offer);
 
     sendData({ description: peerConnectionRef.current.localDescription });
+    
   };
 
   const WaitingComponent = () => {
     return (
       <View style={styles.remoteStyle}>
+        <ProfileIcon />
         <Text style={{ color: "#fff" }}>
           Waiting for connection ...
         </Text>
@@ -147,14 +161,40 @@ const WebRTC = () => {
     }
   }
 
+  const toggleMic = () => {
+    if (remoteAndLocalStream?.localStreamURl) {
+      localStream.getAudioTracks().forEach(track => {
+        track.enabled = !Mic;
+      });
+      setMic(!Mic);
+    }
+  };
+
+  const toggleVideo = () => {
+    if (remoteAndLocalStream?.localStreamURl) {
+      localStream.getVideoTracks().forEach(track => {
+        track.enabled = !Video;
+      });
+      setVideo(!Video);
+    }
+  };
+
+  const Icontoggle = () => {
+    setIconsShow(!IconsShow)
+  }
+
+  const endCall = () => {
+
+  }
+
   return (
     <>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView style={styles.body}>
-        <TouchableWithoutFeedback style={styles.stream}>
-          <View style={styles.stream}>
+        <TouchableWithoutFeedback onPress={() => Icontoggle()} style={styles.stream}>
+          <View style={[styles.stream, {backgroundColor:'#202124'}]}>
             {
-              <View style={styles.loaclStream}>
+              <View style={[styles.loaclStream, {bottom: IconsShow ? 90 : 0}]}>
                 {remoteAndLocalStream.localStreamURl ? (
                   <View style={{ flex: 1 }}>
                     <View style={styles.screenChangeIconView}>
@@ -188,32 +228,45 @@ const WebRTC = () => {
             }
           </View>
         </TouchableWithoutFeedback>
-        <View style={styles.footer}>
 
-          <TouchableOpacity style={styles?.Icons}>
-            <CallIcon width={26} height={26} color={"#fff"} />
-          </TouchableOpacity>
+        <View>
+          {IconsShow ? (
+            <View style={[ styles.footer ]}>
 
-          <TouchableOpacity style={styles?.Icons}>
-            <OffMic width={26} height={26} color={"#fff"} />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles?.Icons}>
-            <OnMic width={26} height={26} color={"#fff"} />
-          </TouchableOpacity>
+              <TouchableOpacity onPress={()=> endCall()} style={[styles?.Icons, { backgroundColor: "#e61923" }]}>
+                <CallIcon width={26} height={26} color={"#fff"} />
+              </TouchableOpacity>
 
-          <TouchableOpacity style={styles?.Icons}>
-            <OnVideo width={26} height={26} color={"#fff"} />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles?.Icons}>
-            <OffVideo width={26} height={26} color={"#fff"} />
-          </TouchableOpacity>
+              <TouchableOpacity onPress={()=> startCall()} style={[styles?.Icons, { backgroundColor: "#38af48" }]}>
+                <SendCall width={26} height={26} color={"#fff"} />
+              </TouchableOpacity>
+
+              {Mic ? (
+                <TouchableOpacity onPress={() => toggleMic()} style={styles?.Icons}>
+                  <OnMic width={26} height={26} color={"#fff"} />
+                </TouchableOpacity>) : (
+                <TouchableOpacity onPress={() => toggleMic()} style={styles?.Icons}>
+                  <OffMic width={26} height={26} color={"#fff"} />
+                </TouchableOpacity>
+              )}
 
 
-          {/* <Button
+              {Video ? (
+                <TouchableOpacity onPress={() => toggleVideo()} style={styles?.Icons}>
+                  <OnVideo width={26} height={26} color={"#fff"} />
+                </TouchableOpacity>) : (
+                <TouchableOpacity onPress={() => toggleVideo()} style={styles?.Icons}>
+                  <OffVideo width={26} height={26} color={"#fff"} />
+                </TouchableOpacity>
+              )}
+
+            </View>) : null}
+        </View>
+
+        {/* <Button
             title="Start"
             onPress={startCall} 
           /> */}
-        </View>
       </SafeAreaView>
     </>
   );
@@ -231,21 +284,26 @@ const styles = StyleSheet.create({
     width: 170,
     height: 250,
     zIndex: 1,
-    bottom: 0,
+    // bottom: 90,
     right: 0,
   },
   stream: {
     flex: 1,
   },
   footer: {
-    paddingTop: 0,
+    flexDirection: 'row',
+    justifyContent: "space-around",
+    marginBottom: 20,
+    marginTop: 20,
+    position: "absolute",
+    width: "100%",
+    bottom: 0,
   },
   remoteStyle: {
     color: "#000",
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    borderStartColor: "yellow",
   },
   screenChange: {
     backgroundColor: "#80808091", padding: 12, borderRadius: 60
@@ -253,5 +311,10 @@ const styles = StyleSheet.create({
   screenChangeIconView: { position: "absolute", top: 0, right: 0, zIndex: 1, padding: 14 },
   Icons: {
     backgroundColor: "#80808091",
+    width: 50,
+    height: 50,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 60,
   },
 });
