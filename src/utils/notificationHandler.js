@@ -84,27 +84,20 @@ export const onDisplayNotificationFun = async (data) => {
     },
     ios: {
       critical: true,
-      launchImageName: varLargeIcon,
-      foregroundPresentationOptions: {
-        badge: true,
-        sound: true,
-        banner: true,
-        list: true,
-      },
-      criticalVolume: 0.9,
-      actions: [
+      attachments: [
         {
-          id: 'view-post',
-          title: 'View post',
-          foreground: true,
-        },
-        {
-          id: 'delete-chat',
-          title: 'Delete chat',
-          destructive: true,
-          // Only show if device is unlocked
-          authenticationRequired: true,
-        },
+          url: 'https://my-cdn.com/user/123/upload/456.png',
+          id: 'big-picture',
+          options: {
+            thumbnailClippingRect: {
+              x: 0.1,
+              y: 0.1,
+              width: 0.8,
+              height: 0.8,
+            },
+            thumbnailTime: 10,
+          }
+        }
       ],
     },
   });
