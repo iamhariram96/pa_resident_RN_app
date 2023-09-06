@@ -512,7 +512,7 @@
 				DEVELOPMENT_TEAM = Q92NY88HWM;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "com.app.pa-resident/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "PA Resident";
+				INFOPLIST_KEY_CFBundleDisplayName = Resident;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -546,7 +546,7 @@
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = Q92NY88HWM;
 				INFOPLIST_FILE = "com.app.pa-resident/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "PA Resident";
+				INFOPLIST_KEY_CFBundleDisplayName = Resident;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -4,6 +4,7 @@ import notifee, { AndroidImportance, AndroidVisibility, AndroidCategory, Android
 
 export const onDisplayNotificationFun = async (data) => {
   // Create a channel (required for Android)
+  
   const channelId = await notifee.createChannel({
     id: 'important',
     name: 'Important Notifications 34',
@@ -23,8 +24,8 @@ export const onDisplayNotificationFun = async (data) => {
   let varTitle = "";
   let varBody = "";
   // let varLargeIcon = "https://my-cdn.com/user/123/upload/456.png";
-  // let varLargeIcon = "https://img.freepik.com/free-photo/half-profile-image-handsome-young-caucasian-man-with-good-skin-brown-eyes-black-stylish-hair-stubble-posing-isolated-against-blank-wall-looking-front-him-smiling_343059-4560.jpg";
-  // let bigPicture = "https://img.freepik.com/free-photo/half-profile-image-handsome-young-caucasian-man-with-good-skin-brown-eyes-black-stylish-hair-stubble-posing-isolated-against-blank-wall-looking-front-him-smiling_343059-4560.jpg";
+  let varLargeIcon = "https://img.freepik.com/free-photo/half-profile-image-handsome-young-caucasian-man-with-good-skin-brown-eyes-black-stylish-hair-stubble-posing-isolated-against-blank-wall-looking-front-him-smiling_343059-4560.jpg";
+  let bigPicture = "https://img.freepik.com/free-photo/half-profile-image-handsome-young-caucasian-man-with-good-skin-brown-eyes-black-stylish-hair-stubble-posing-isolated-against-blank-wall-looking-front-him-smiling_343059-4560.jpg";
 
   if (Object.keys(data?.data).length > 0){
     // PA push
@@ -58,7 +59,7 @@ export const onDisplayNotificationFun = async (data) => {
       importance: AndroidImportance.HIGH,
       timestamp: Date.now(),
       showTimestamp: true,
-      // largeIcon: varLargeIcon,
+      largeIcon: varLargeIcon,
       loopSound: true,
       timestamp: Date.now() - 480000, // 8 minutes ago
       color: '#4caf50',
@@ -81,8 +82,30 @@ export const onDisplayNotificationFun = async (data) => {
         },
       ],
     },
-    ios:{
-
-    }
+    ios: {
+      critical: true,
+      launchImageName: varLargeIcon,
+      foregroundPresentationOptions: {
+        badge: true,
+        sound: true,
+        banner: true,
+        list: true,
+      },
+      criticalVolume: 0.9,
+      actions: [
+        {
+          id: 'view-post',
+          title: 'View post',
+          foreground: true,
+        },
+        {
+          id: 'delete-chat',
+          title: 'Delete chat',
+          destructive: true,
+          // Only show if device is unlocked
+          authenticationRequired: true,
+        },
+      ],
+    },
   });
 }

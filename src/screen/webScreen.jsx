@@ -32,7 +32,7 @@ const WebScreen = (props) => {
 
     console.log(`https://resident.pms2.propgoto.com/login/?deviceToken=${diviceToken}`+ ' diviceToken');
     const onMessage = (payload) => {
-        console.log('payload asses', payload);
+        // console.log('payload asses', payload);
     };
 
     const WebviewRender = () => {
@@ -60,7 +60,5 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         marginTop: -StatusBar.currentHeight + 10,
-        justifyContent: 'center',
-        backgroundColor: '#000',
     },
 });
