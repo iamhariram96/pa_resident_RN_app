@@ -83,10 +83,11 @@ export const onDisplayNotificationFun = async (data) => {
       ],
     },
     ios: {
+      sound: "doorbell",
       critical: true,
       attachments: [
         {
-          url: 'https://my-cdn.com/user/123/upload/456.png',
+          url: 'https://img.freepik.com/free-photo/half-profile-image-handsome-young-caucasian-man-with-good-skin-brown-eyes-black-stylish-hair-stubble-posing-isolated-against-blank-wall-looking-front-him-smiling_343059-4560.jpg',
           id: 'big-picture',
           options: {
             thumbnailClippingRect: {
