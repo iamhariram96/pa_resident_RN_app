@@ -1,4 +1,13 @@
 apply plugin: "com.android.application"
+
+project.ext.envConfigFiles = [
+    realesteatepro: ".env.realesteatepro",
+    rafal: ".env.rafal",
+    resident: ".env.resident",
+]
+
+apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
+
 apply plugin: "com.facebook.react"
 
 /**
@@ -78,9 +87,33 @@ android {
         applicationId "com.app.pa_resident"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 2
-        versionName "0.0.2"
+        versionCode 3
+        versionName "0.0.3"
     }
+
+    flavorDimensions "default"
+    productFlavors {
+        realesteatepro {
+            minSdkVersion rootProject.ext.minSdkVersion
+            applicationId 'com.app.paRealEsteatePro'
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            resValue "string", "build_config_package", "com.app.pa_resident"
+        }
+        rafal {
+            minSdkVersion rootProject.ext.minSdkVersion
+            applicationId 'com.app.paRafal'
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            resValue "string", "build_config_package", "com.app.pa_resident"
+        }
+        resident {
+            minSdkVersion rootProject.ext.minSdkVersion
+            applicationId 'com.app.pa_resident'
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            resValue "string", "build_config_package", "com.app.pa_resident"
+        }
+    }
+
+
     signingConfigs {
         debug {
             storeFile file('debug.keystore')

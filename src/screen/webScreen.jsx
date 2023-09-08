@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import {
     SafeAreaView,
@@ -10,6 +10,8 @@ import {
 } from 'react-native';
 
 import { WebView } from 'react-native-webview';
+
+import Config from "react-native-config";
 
 const INJECTED_JAVASCRIPT = `(function() {
     const authLocalStorage = window.localStorage.getItem('authToken');
@@ -30,17 +32,36 @@ const INJECTED_JAVASCRIPT = `(function() {
 const WebScreen = (props) => {
     const { diviceToken } = props;
 
-    console.log(`https://resident.pms2.propgoto.com/login/?deviceToken=${diviceToken}`+ ' diviceToken');
+    const [webUrl, setWebUrl] = React.useState('');
+
     const onMessage = (payload) => {
         // console.log('payload asses', payload);
     };
 
+    console.log(JSON.stringify(Config) + ' asdfnasdkfjs');
+
+    useEffect(() => {
+        if (Config?.APPNAME === "resident") {
+            setWebUrl(`${Config?.PROJECT_URL}/?deviceToken=${diviceToken}`)
+        } else if (Config?.APPNAME === "rafal" || Config?.APPNAME === "RealEsteatePro360") {
+            // url for rafal and RealEsteatePro360
+            setWebUrl(`${Config?.PROJECT_URL}`)
+        } else {
+            // url
+            setWebUrl(`${Config?.PROJECT_URL}`)
+        }
+    }, []);
+
     const WebviewRender = () => {
-        if (diviceToken?.length > 0) {
+        if (webUrl?.length > 0) {
             return <WebView
                 injectedJavaScript={INJECTED_JAVASCRIPT}
                 onMessage={onMessage}
-                source={{ uri: `https://resident.pms2.propgoto.com/login/?deviceToken=${diviceToken}` }} style={{ marginTop: 20 }} />
+                source={{ uri: webUrl }} style={{ marginTop: 20 }}
+                renderLoading={() => {
+                    return <ActivityIndicator size="large" />
+                }}
+            />
         } else {
             return <ActivityIndicator size="large" />
         }
@@ -49,7 +70,7 @@ const WebScreen = (props) => {
     return (
         <View style={styles.container}>
             <WebviewRender />
-            {/* <Text>hello</Text> */}
+            {/* <Text>{Config?.APPNAME}</Text> */}
         </View>
     );
 }
