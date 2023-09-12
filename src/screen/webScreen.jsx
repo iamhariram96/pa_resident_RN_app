@@ -58,9 +58,6 @@ const WebScreen = (props) => {
                 injectedJavaScript={INJECTED_JAVASCRIPT}
                 onMessage={onMessage}
                 source={{ uri: webUrl }} style={{ marginTop: 20 }}
-                renderLoading={() => {
-                    return <ActivityIndicator size="large" />
-                }}
             />
         } else {
             return <ActivityIndicator size="large" />
@@ -68,10 +65,9 @@ const WebScreen = (props) => {
     }
 
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <WebviewRender />
-            {/* <Text>{Config?.APPNAME}</Text> */}
-        </View>
+        </SafeAreaView>
     );
 }
 

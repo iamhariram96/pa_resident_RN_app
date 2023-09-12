@@ -1,4 +1,5 @@
 {
-  "name": "app.pa_resident",
+  "//commit":"if ios com.app.pa-resident else if android app.pa_resident",
+  "name": "com.app.pa-resident",
   "displayName": "PA Resident"
 }
