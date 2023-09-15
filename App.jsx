@@ -47,7 +47,7 @@ const App = () => {
     // Get the FCM token for this device
     // 
     const enabled = await firebase.messaging().hasPermission();
-
+console.log('FCM Token:', token);
     if (enabled) {
       const token = await messaging().getToken();
       console.log('FCM Token:', token);

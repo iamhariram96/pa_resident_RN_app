@@ -4,6 +4,7 @@ project.ext.envConfigFiles = [
     realesteatepro: ".env.realesteatepro",
     rafal: ".env.rafal",
     resident: ".env.resident",
+    paresident: ".env.resident",
 ]
 
 apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
@@ -87,8 +88,8 @@ android {
         applicationId "com.app.pa_resident"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 3
-        versionName "0.0.3"
+        versionCode 4
+        versionName "0.0.4"
     }
 
     flavorDimensions "default"
@@ -108,6 +109,12 @@ android {
         resident {
             minSdkVersion rootProject.ext.minSdkVersion
             applicationId 'com.app.pa_resident'
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            resValue "string", "build_config_package", "com.app.pa_resident"
+        }
+        paresident {
+            minSdkVersion rootProject.ext.minSdkVersion
+            applicationId 'com.app.paresident'
             targetSdkVersion rootProject.ext.targetSdkVersion
             resValue "string", "build_config_package", "com.app.pa_resident"
         }

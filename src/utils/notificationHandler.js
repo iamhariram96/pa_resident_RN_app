@@ -66,21 +66,21 @@ export const onDisplayNotificationFun = async (data) => {
       fullScreenAction: {
         id: 'default 2',
       },
-      // style: { type: AndroidStyle.BIGPICTURE, picture: bigPicture },
-      // actions: [
-      //   {
-      //     title: '<p style="background-color: #9c27b0;"><p style="color: #f44336;"><b>Do Not Allow</b></p></p>',
-      //     pressAction: { id: 'rejected' },
-      //   },
-      //   {
-      //     title: '<p style="color: #008000;"><b>Allow</b></p>',
-      //     pressAction: { id: 'accept' },
-      //   },
-      //   {
-      //     title: '<p><b>Video</b></p>',
-      //     pressAction: { id: 'video' },
-      //   },
-      // ],
+      style: { type: AndroidStyle.BIGPICTURE, picture: bigPicture },
+      actions: [
+        {
+          title: '<p style="background-color: #9c27b0;"><p style="color: #f44336;"><b>Do Not Allow</b></p></p>',
+          pressAction: { id: 'rejected' },
+        },
+        {
+          title: '<p style="color: #008000;"><b>Allow</b></p>',
+          pressAction: { id: 'accept' },
+        },
+        {
+          title: '<p><b>Video</b></p>',
+          pressAction: { id: 'video' },
+        },
+      ],
     },
     ios: {
       sound: "doorbell",
