@@ -13,6 +13,7 @@ import notifee, { AuthorizationStatus } from '@notifee/react-native';
 import messaging from '@react-native-firebase/messaging';
 import { onDisplayNotificationFun } from './src/utils/notificationHandler';
 import { firebase } from '@react-native-firebase/app';
+import SplashScreen from 'react-native-splash-screen';
 
 import WebScreen from "./src/screen/webScreen";
 const App = () => {
@@ -23,6 +24,14 @@ const App = () => {
     setupNotifications();
     setupFCM();
   }, []);
+
+  React.useEffect(() => {
+    if (Platform.OS === 'android') {
+      // eslint-disable-next-line no-undef
+      SplashScreen.hide();
+    }
+  }, []);
+  
 
   const setupNotifications = async () => {
     // Check if the app has been granted notification permissions    
@@ -47,7 +56,7 @@ const App = () => {
     // Get the FCM token for this device
     // 
     const enabled = await firebase.messaging().hasPermission();
-console.log('FCM Token:', token);
+    console.log('FCM Token:', token);
     if (enabled) {
       const token = await messaging().getToken();
       console.log('FCM Token:', token);

@@ -146,6 +146,7 @@ android {
 dependencies {
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
+    implementation project(':react-native-splash-screen')
     // Import the Firebase BoMrr
     implementation platform('com.google.firebase:firebase-bom:32.2.0')
     // TODO: Add the dependencies for Firebase products you want to use
