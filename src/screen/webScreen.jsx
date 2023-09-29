@@ -5,8 +5,7 @@ import {
     StatusBar,
     StyleSheet,
     ActivityIndicator,
-    Text,
-    View
+    Text
 } from 'react-native';
 
 import { WebView } from 'react-native-webview';
@@ -68,10 +67,10 @@ const WebScreen = (props) => {
     }
 
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <WebviewRender />
             {/* <Text>{Config?.APPNAME}</Text> */}
-        </View>
+        </SafeAreaView>
     );
 }
 

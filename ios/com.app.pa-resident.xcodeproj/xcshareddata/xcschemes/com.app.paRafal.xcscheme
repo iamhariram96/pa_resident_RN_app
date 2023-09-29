@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1430"
+   LastUpgradeVersion = "1500"
    version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"
-                     BlueprintIdentifier = "556C4A4D2AAD9F9C00E0EE1F"
+                     BlueprintIdentifier = "55970AC62AC71166006C7E50"
                      BuildableName = "com.app.paRafal.app"
                      BlueprintName = "com.app.paRafal"
                      ReferencedContainer = "container:com.app.pa-resident.xcodeproj">
@@ -32,7 +32,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "556C4A4D2AAD9F9C00E0EE1F"
+               BlueprintIdentifier = "55970AC62AC71166006C7E50"
                BuildableName = "com.app.paRafal.app"
                BlueprintName = "com.app.paRafal"
                ReferencedContainer = "container:com.app.pa-resident.xcodeproj">
@@ -61,7 +61,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "556C4A4D2AAD9F9C00E0EE1F"
+            BlueprintIdentifier = "55970AC62AC71166006C7E50"
             BuildableName = "com.app.paRafal.app"
             BlueprintName = "com.app.paRafal"
             ReferencedContainer = "container:com.app.pa-resident.xcodeproj">
@@ -78,7 +78,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "556C4A4D2AAD9F9C00E0EE1F"
+            BlueprintIdentifier = "55970AC62AC71166006C7E50"
             BuildableName = "com.app.paRafal.app"
             BlueprintName = "com.app.paRafal"
             ReferencedContainer = "container:com.app.pa-resident.xcodeproj">
