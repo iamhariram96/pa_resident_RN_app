@@ -2,6 +2,18 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>BGTaskSchedulerPermittedIdentifiers</key>
+	<string>We use location to show the distance between them and block they are residing in</string>
+
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>We use location to show the distance between them and block they are residing in</string>
+
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>We use location to show the distance between them and block they are residing in</string>
+
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We use location to show the distance between them and block they are residing in</string>
+
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -35,8 +47,17 @@
 			</dict>
 		</dict>
 	</dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<key>NSCameraUsageDescription</key>
+	<string>Camera is to upload profile picture or to request for pass</string>
+
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Will be only used when a scan happens during a visitor or vehicle enters the premises</string>
+
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>location</string>
+		<string>processing</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>ResidentLaunchScreen.storyboard</string>
 	<key>UIRequiredDeviceCapabilities</key>

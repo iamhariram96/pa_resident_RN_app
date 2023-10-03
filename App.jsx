@@ -13,14 +13,13 @@ import notifee, { AuthorizationStatus } from '@notifee/react-native';
 import messaging from '@react-native-firebase/messaging';
 import { onDisplayNotificationFun } from './src/utils/notificationHandler';
 import { firebase } from '@react-native-firebase/app';
-
 import WebScreen from "./src/screen/webScreen";
 const App = () => {
 
   const [token, setToken] = useState("");
 
   useEffect(() => {
-    setupNotifications();
+    // setupNotifications();
   }, []);
 
   const setupNotifications = async () => {
