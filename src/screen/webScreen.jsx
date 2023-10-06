@@ -44,15 +44,6 @@ const WebScreen = (props) => {
     };
 
     useEffect(() => {
-        if (Config?.APPNAME === "resident") {
-            setWebUrl(`${Config?.PROJECT_URL}?deviceToken=${diviceToken}&device=mobile&latitude=${location?.latitude}&longitude=${location?.longitude}=${location?.city}&code=${location?.code}&country_name=${location?.country_name}`)
-        } else if (Config?.APPNAME === "rafal" || Config?.APPNAME === "RealEsteatePro360") {
-            // url for rafal and RealEsteatePro360
-            setWebUrl(`${Config?.PROJECT_URL}`)
-        } else {
-            // url
-            setWebUrl(`${Config?.PROJECT_URL}`)
-        }
 
         async function requestLocationPermission() {
             let getStatus = "";
@@ -62,11 +53,12 @@ const WebScreen = (props) => {
             else {
                 getStatus = await request(PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION); // For Android
             }
+            console.log('getStatus', getStatus);
             setStatus(getStatus)
         }
     
         requestLocationPermission();
-    }, [diviceToken]);
+    }, []);
 
     React.useEffect(() => {
         getCurrentPosition = () => {
@@ -86,7 +78,15 @@ const WebScreen = (props) => {
                                 city:responseJson.results[0].address_components[5].long_name,
                                 address:responseJson.results[0].formatted_address
                             });
-                            
+                            // if (Config?.APPNAME === "resident") {
+                                setWebUrl(`${Config?.PROJECT_URL}?deviceToken=${diviceToken}&device=mobile&latitude=${location?.latitude}&longitude=${location?.longitude}=${location?.city}&code=${location?.code}&country_name=${location?.country_name}`)
+                            // } else if (Config?.APPNAME === "rafal" || Config?.APPNAME === "RealEsteatePro360") {
+                            //     // url for rafal and RealEsteatePro360
+                            //     setWebUrl(`${Config?.PROJECT_URL}`)
+                            // } else {
+                            //     // url
+                            //     setWebUrl(`${Config?.PROJECT_URL}`)
+                            // }
                         })
                 },
                 (error) => {
@@ -106,14 +106,14 @@ const WebScreen = (props) => {
             return <WebView
                 injectedJavaScript={INJECTED_JAVASCRIPT}
                 onMessage={onMessage}
-                overScrollMode='never'
-                pullToRefreshEnabled={true}
+                // overScrollMode='never'
+                // pullToRefreshEnabled={true}
                 // onLoadEnd={() => {
                 //     setVisible(false)
                 // }}
                 incognito={true}
                 cacheEnabled={false}
-                cacheMode={'LOAD_NO_CACHE'}
+                // cacheMode={'LOAD_NO_CACHE'}
                 source={{ uri: webUrl }} style={{ marginTop: 20 }}
                 renderLoading={() => {
                     return <ActivityIndicator size="large" />
