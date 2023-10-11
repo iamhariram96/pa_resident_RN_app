@@ -91,12 +91,15 @@ const WebScreen = (props) => {
                 },
                 (error) => {
                     console.error('Error getting location:', error);
+                    setWebUrl(`${Config?.PROJECT_URL}?deviceToken=${diviceToken}`);
                 },
                 { enableHighAccuracy: false, timeout: 20000, maximumAge: 1000 }
             );
             // Location permission has been granted by the user.
         };
         if (status === RESULTS.GRANTED) {
+            getCurrentPosition();
+        }else{
             getCurrentPosition();
         }
     }, [status]);
