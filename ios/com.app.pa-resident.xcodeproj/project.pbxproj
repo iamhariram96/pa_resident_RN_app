@@ -726,7 +726,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = RafalIcons;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = com.app.paRafal.entitlements;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = Q92NY88HWM;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = com.app.realEsteatePro.plist;
@@ -735,7 +735,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.3;
+				MARKETING_VERSION = 1.0.4;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -756,7 +756,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = RafalIcons;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = com.app.paRafal.entitlements;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = Q92NY88HWM;
 				INFOPLIST_FILE = com.app.realEsteatePro.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
@@ -764,7 +764,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.3;
+				MARKETING_VERSION = 1.0.4;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -784,7 +784,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = 360Icons;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = com.app.realEsteatePro.entitlements;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = Q92NY88HWM;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = com.app.paRafal.plist;
@@ -814,7 +814,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = 360Icons;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = com.app.realEsteatePro.entitlements;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = Q92NY88HWM;
 				INFOPLIST_FILE = com.app.paRafal.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
