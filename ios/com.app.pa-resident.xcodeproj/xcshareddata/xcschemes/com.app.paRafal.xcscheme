@@ -10,13 +10,13 @@
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Run Script"
-               scriptText = "# Type a script or drag a script file from your workspace to insert its path.&#10;echo &quot;.env.resident&quot; &gt; /tmp/envfile&#10;">
+               scriptText = "# Type a script or drag a script file from your workspace to insert its path.&#10;echo &quot;.env.rafal&quot; &gt; /tmp/envfile&#10;">
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"
-                     BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-                     BuildableName = "com.app.pa-resident.app"
-                     BlueprintName = "com.app.pa-resident"
+                     BlueprintIdentifier = "55970AC62AC71166006C7E50"
+                     BuildableName = "com.app.paRafal.app"
+                     BlueprintName = "com.app.paRafal"
                      ReferencedContainer = "container:com.app.pa-resident.xcodeproj">
                   </BuildableReference>
                </EnvironmentBuildable>
@@ -32,9 +32,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "com.app.pa-resident.app"
-               BlueprintName = "com.app.pa-resident"
+               BlueprintIdentifier = "55970AC62AC71166006C7E50"
+               BuildableName = "com.app.paRafal.app"
+               BlueprintName = "com.app.paRafal"
                ReferencedContainer = "container:com.app.pa-resident.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -61,9 +61,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "com.app.pa-resident.app"
-            BlueprintName = "com.app.pa-resident"
+            BlueprintIdentifier = "55970AC62AC71166006C7E50"
+            BuildableName = "com.app.paRafal.app"
+            BlueprintName = "com.app.paRafal"
             ReferencedContainer = "container:com.app.pa-resident.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -78,9 +78,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "com.app.pa-resident.app"
-            BlueprintName = "com.app.pa-resident"
+            BlueprintIdentifier = "55970AC62AC71166006C7E50"
+            BuildableName = "com.app.paRafal.app"
+            BlueprintName = "com.app.paRafal"
             ReferencedContainer = "container:com.app.pa-resident.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

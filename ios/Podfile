@@ -1,5 +1,8 @@
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 require_relative '../node_modules/react-native/scripts/react_native_pods'
+require_relative '../node_modules/react-native-permissions/scripts/setup'
+
+$RNFirebaseAsStaticFramework = true
 
 # Resolve react_native_pods.rb with node to allow for hoisting
 require Pod::Executable.execute_command('node', ['-p',
@@ -10,6 +13,24 @@ require Pod::Executable.execute_command('node', ['-p',
 
 platform :ios, min_ios_version_supported
 prepare_react_native_project!
+
+def node_require(script)
+  # Resolve script with node to allow for hoisting
+  require Pod::Executable.execute_command('node', ['-p',
+    "require.resolve(
+      '#{script}',
+      {paths: [process.argv[1]]},
+    )", __dir__]).strip
+end
+
+node_require('react-native/scripts/react_native_pods.rb')
+node_require('react-native-permissions/scripts/setup.rb')
+
+setup_permissions([
+  'LocationAccuracy',
+  'LocationAlways',
+  'LocationWhenInUse',
+])
 
 # If you are using a `react-native-flipper` your iOS build will fail when `NO_FLIPPER=1` is set.
 # because `react-native-flipper` depends on (FlipperKit,...) that will be excluded
@@ -32,10 +53,13 @@ end
 
 target 'com.app.pa-resident' do
   config = use_native_modules!
-  use_frameworks! :linkage => :static
 
   # Flags change depending on the env values.
   flags = get_default_flags()
+
+  # This has to come before use_react_native or you get AppDelegate or RCTEventEmitter not found
+  use_frameworks! :linkage => :static
+  
 
   use_react_native!(
     :path => config[:reactNativePath],
@@ -51,7 +75,12 @@ target 'com.app.pa-resident' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
-  target 'com.app.pa-residentTests' do
+  target 'com.app.paRafal' do
+    inherit! :complete
+    # Pods for testing
+  end
+
+  target 'com.app.realEsteatePro' do
     inherit! :complete
     # Pods for testing
   end
