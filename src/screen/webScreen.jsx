@@ -49,65 +49,65 @@ const WebScreen = (props) => {
 
 
     useEffect(() => {
-
-        async function requestLocationPermission() {
-            let getStatus = "";
-            if (Platform.OS === 'ios') {
-                getStatus = await request(PERMISSIONS.IOS.LOCATION_WHEN_IN_USE); // For iOS
-            }
-            else {
-                getStatus = await request(PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION); // For Android
-            }
-            console.log('getStatus', getStatus);
-            setStatus(getStatus)
-        }
+        setWebUrl(`${Config?.PROJECT_URL}?deviceToken=${diviceToken}`)
+        // async function requestLocationPermission() {
+        //     let getStatus = "";
+        //     if (Platform.OS === 'ios') {
+        //         getStatus = await request(PERMISSIONS.IOS.LOCATION_WHEN_IN_USE); // For iOS
+        //     }
+        //     else {
+        //         getStatus = await request(PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION); // For Android
+        //     }
+        //     console.log('getStatus', getStatus);
+        //     setStatus(getStatus)
+        // }
     
-        requestLocationPermission();
+        // requestLocationPermission();
     }, []);
 
-    React.useEffect(() => {
-        getCurrentPosition = () => {
-            // Get the current location
-            // Geolocation.getCurrentPosition(
-            //     async (position) => {
-            //         const { latitude, longitude } = position.coords;
-            //         await fetch('https://maps.googleapis.com/maps/api/geocode/json?address=' + latitude + ',' + longitude + '&key=' + "AIzaSyD2c4H1Ldomf95Y_dBG64KbNvE9tzmLDbk")
-            //             .then((response) => response.json())
-            //             .then((responseJson) => {
+    // React.useEffect(() => {
+    //     getCurrentPosition = () => {
+    //         // Get the current location
+    //         // Geolocation.getCurrentPosition(
+    //         //     async (position) => {
+    //         //         const { latitude, longitude } = position.coords;
+    //         //         await fetch('https://maps.googleapis.com/maps/api/geocode/json?address=' + latitude + ',' + longitude + '&key=' + "AIzaSyD2c4H1Ldomf95Y_dBG64KbNvE9tzmLDbk")
+    //         //             .then((response) => response.json())
+    //         //             .then((responseJson) => {
 
-            //                 setLocation({
-            //                     latitude,
-            //                     longitude,
-            //                     country_name:responseJson.results[0].address_components[6].long_name,
-            //                     code:responseJson.results[0].address_components[6].short_name,
-            //                     city:responseJson.results[0].address_components[5].long_name,
-            //                     address:responseJson.results[0].formatted_address
-            //                 });
-            //                 // if (Config?.APPNAME === "resident") {
-            //                     setWebUrl(`${Config?.PROJECT_URL}?deviceToken=${diviceToken}&device=mobile&latitude=${location?.latitude}&longitude=${location?.longitude}=${location?.city}&code=${location?.code}&country_name=${location?.country_name}`)
-            //                 // } else if (Config?.APPNAME === "rafal" || Config?.APPNAME === "RealEsteatePro360") {
-            //                 //     // url for rafal and RealEsteatePro360
-                                setWebUrl(`${Config?.PROJECT_URL}?deviceToken=${diviceToken}`)
-            //                 // } else {
-            //                 //     // url
-            //                 //     setWebUrl(`${Config?.PROJECT_URL}`)
-            //                 // }
-            //             })
-            //     },
-            //     (error) => {
-            //         console.error('Error getting location:', error);
-            //         setWebUrl(`${Config?.PROJECT_URL}?deviceToken=${diviceToken}`);
-            //     },
-            //     { enableHighAccuracy: false, timeout: 20000, maximumAge: 1000 }
-            // );
-            // Location permission has been granted by the user.
-        };
-        if (status === RESULTS.GRANTED) {
-            getCurrentPosition();
-        }else{
-            getCurrentPosition();
-        }
-    }, [status]);
+    //         //                 setLocation({
+    //         //                     latitude,
+    //         //                     longitude,
+    //         //                     country_name:responseJson.results[0].address_components[6].long_name,
+    //         //                     code:responseJson.results[0].address_components[6].short_name,
+    //         //                     city:responseJson.results[0].address_components[5].long_name,
+    //         //                     address:responseJson.results[0].formatted_address
+    //         //                 });
+    //         //                 // if (Config?.APPNAME === "resident") {
+    //         //                     setWebUrl(`${Config?.PROJECT_URL}?deviceToken=${diviceToken}&device=mobile&latitude=${location?.latitude}&longitude=${location?.longitude}=${location?.city}&code=${location?.code}&country_name=${location?.country_name}`)
+    //         //                 // } else if (Config?.APPNAME === "rafal" || Config?.APPNAME === "RealEsteatePro360") {
+    //         //                 //     // url for rafal and RealEsteatePro360
+    //                             setWebUrl(`${Config?.PROJECT_URL}?deviceToken=${diviceToken}`)
+    //         //                 // } else {
+    //         //                 //     // url
+    //         //                 //     setWebUrl(`${Config?.PROJECT_URL}`)
+    //         //                 // }
+    //         //             })
+    //         //     },
+    //         //     (error) => {
+    //         //         console.error('Error getting location:', error);
+    //         //         setWebUrl(`${Config?.PROJECT_URL}?deviceToken=${diviceToken}`);
+    //         //     },
+    //         //     { enableHighAccuracy: false, timeout: 20000, maximumAge: 1000 }
+    //         // );
+    //         // Location permission has been granted by the user.
+    //     };
+    //     if (status === RESULTS.GRANTED) {
+    //         getCurrentPosition();
+    //     }else{
+    //         getCurrentPosition();
+    //     }
+    // }, [status]);
 
     const WebviewRender = () => {
         if (webUrl?.length > 0) {
@@ -122,7 +122,7 @@ const WebScreen = (props) => {
                 incognito={true}
                 cacheEnabled={false}
                 // cacheMode={'LOAD_NO_CACHE'}
-                source={{ uri: webUrl }} style={{ marginTop: 20 }}
+                source={{ uri: webUrl }} style={{ marginTop: isIOS ? 0 : 10 }}
             />
         } else {
             return <ActivityIndicator size="large" />
@@ -130,12 +130,22 @@ const WebScreen = (props) => {
     }
 
     return (
-        <SafeAreaProvider style={{flex: 1}}>
-            <SafeAreaView style={{flex:1, paddingBottom: isIOS && height < 812 ? -1 : -40}}>
-                <WebviewRender />
-            </SafeAreaView>
-        </SafeAreaProvider>
+        <View style={{flex: 1,backgroundColor:"#1976d2"}}>
+            <SafeAreaProvider style={{flex: 1}}>
+                <StatusBar translucent backgroundColor={"#1976d2"} barStyle="light-content"/>
+                <SafeAreaView style={{flex:1, paddingBottom: isIOS && height < 812 ? -1 : -40}}>
+                    <WebviewRender />
+                </SafeAreaView>
+            </SafeAreaProvider>
+        </View>
     );
 }
+
+const styles = StyleSheet.create({
+    StatusBar: {
+        height: 0,
+        backgroundColor: 'rgba(22,7,92,1)'
+    }
+});
 
 export default WebScreen;
