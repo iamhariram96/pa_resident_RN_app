@@ -23,6 +23,9 @@
 		55970AFF2AC72D3B006C7E50 /* RealEsteateProScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55970AFB2AC72CAD006C7E50 /* RealEsteateProScreen.storyboard */; };
 		55970B012AC72E18006C7E50 /* com.app.realEsteatePro.plist in Resources */ = {isa = PBXBuildFile; fileRef = 55970AD92AC71166006C7E50 /* com.app.realEsteatePro.plist */; };
 		55970B022AC72E1B006C7E50 /* com.app.paRafal.plist in Resources */ = {isa = PBXBuildFile; fileRef = 55970AED2AC7120B006C7E50 /* com.app.paRafal.plist */; };
+		55C30ECE2B1880DF008B6A11 /* doorbell.wav in Resources */ = {isa = PBXBuildFile; fileRef = 55C30ECD2B1880DF008B6A11 /* doorbell.wav */; };
+		55C30ECF2B1880DF008B6A11 /* doorbell.wav in Resources */ = {isa = PBXBuildFile; fileRef = 55C30ECD2B1880DF008B6A11 /* doorbell.wav */; };
+		55C30ED02B1880DF008B6A11 /* doorbell.wav in Resources */ = {isa = PBXBuildFile; fileRef = 55C30ECD2B1880DF008B6A11 /* doorbell.wav */; };
 		7DA9B03A2B783E8EAF8D908A /* Pods_com_app_pa_resident.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1A2D77E64FC713F0DCD9CD9 /* Pods_com_app_pa_resident.framework */; };
 		81AB9BB82411601600AC10FF /* ResidentLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* ResidentLaunchScreen.storyboard */; };
 		B84490E4BDBB1C14676B232B /* Pods_com_app_pa_resident_com_app_realEsteatePro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87DA1734E077E9BE08E07E61 /* Pods_com_app_pa_resident_com_app_realEsteatePro.framework */; };
@@ -51,6 +54,7 @@
 		55970AF92AC72C60006C7E50 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		55970AFB2AC72CAD006C7E50 /* RealEsteateProScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RealEsteateProScreen.storyboard; sourceTree = "<group>"; };
 		55970AFD2AC72D2E006C7E50 /* RafalScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RafalScreen.storyboard; sourceTree = "<group>"; };
+		55C30ECD2B1880DF008B6A11 /* doorbell.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = doorbell.wav; sourceTree = "<group>"; };
 		624C0BB8CB08EB85ECC65169 /* Pods-com.app.pa-resident-com.app.paRafal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-com.app.pa-resident-com.app.paRafal.release.xcconfig"; path = "Target Support Files/Pods-com.app.pa-resident-com.app.paRafal/Pods-com.app.pa-resident-com.app.paRafal.release.xcconfig"; sourceTree = "<group>"; };
 		6965A44344A45A9A1EE13174 /* Pods-com.app.pa-resident-com.app.realEsteatePro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-com.app.pa-resident-com.app.realEsteatePro.debug.xcconfig"; path = "Target Support Files/Pods-com.app.pa-resident-com.app.realEsteatePro/Pods-com.app.pa-resident-com.app.realEsteatePro.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* ResidentLaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ResidentLaunchScreen.storyboard; path = "com.app.pa-resident/ResidentLaunchScreen.storyboard"; sourceTree = "<group>"; };
@@ -160,6 +164,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				55C30ECD2B1880DF008B6A11 /* doorbell.wav */,
 				55970AF12AC715D9006C7E50 /* GoogleService */,
 				55970AF02AC715B9006C7E50 /* com.app.realEsteatePro.entitlements */,
 				55970AEF2AC7159F006C7E50 /* com.app.paRafal.entitlements */,
@@ -310,6 +315,7 @@
 				55970AFA2AC72C60006C7E50 /* GoogleService-Info.plist in Resources */,
 				81AB9BB82411601600AC10FF /* ResidentLaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				55C30ECE2B1880DF008B6A11 /* doorbell.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +327,7 @@
 				55970AD02AC71166006C7E50 /* Images.xcassets in Resources */,
 				55970B022AC72E1B006C7E50 /* com.app.paRafal.plist in Resources */,
 				55970AFE2AC72D2E006C7E50 /* RafalScreen.storyboard in Resources */,
+				55C30ECF2B1880DF008B6A11 /* doorbell.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,6 +339,7 @@
 				55970AFF2AC72D3B006C7E50 /* RealEsteateProScreen.storyboard in Resources */,
 				55970B012AC72E18006C7E50 /* com.app.realEsteatePro.plist in Resources */,
 				55970AE42AC7120B006C7E50 /* Images.xcassets in Resources */,
+				55C30ED02B1880DF008B6A11 /* doorbell.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

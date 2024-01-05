@@ -9,12 +9,15 @@
 
 // App.jsx
 import React, { useEffect, useState } from 'react';
+import {View, Text, Image, StyleSheet} from "react-native";
 import notifee, { AuthorizationStatus } from '@notifee/react-native';
 import messaging from '@react-native-firebase/messaging';
 import { onDisplayNotificationFun } from './src/utils/notificationHandler';
 import { firebase } from '@react-native-firebase/app';
 import SplashScreen from 'react-native-splash-screen';
+import Modal from "react-native-modal";
 
+import Logo from './src/assets/logo.png'
 import WebScreen from "./src/screen/webScreen";
 const App = () => {
 
@@ -77,7 +80,7 @@ const App = () => {
 
     // For handling notification press events in the foreground
     notifee.onForegroundEvent(async ({ type, detail }) => {
-      console.log('Notification Press in Foreground:', detail);
+      // console.log('Notification Press in Foreground:', detail);
     });
 
     // For handling notification press events in the background
@@ -88,8 +91,36 @@ const App = () => {
   };
 
   return (
-    <WebScreen diviceToken={token}/>
+    <>
+      {/* <Modal isVisible={true}>
+        <View style={styles.modelCard}>
+          <View style={styles.title}>
+            <Image source={require('./src/assets/logo.png')} style={styles.logo}/>
+            <Text>I am the modal content!</Text>
+          </View>
+        </View>
+      </Modal> */}
+      <WebScreen diviceToken={token}/>
+    </>
   );
 };
 
 export default App;
+
+
+
+const styles = StyleSheet.create({
+  logo:{
+    width: 50,
+    height: 50,
+    borderRadius: 8,
+    marginRight: 8
+  },
+  title: {
+    flex: 1,
+    flexDirection:"row",
+    justifyContent:"start",
+    alignItems:"center"
+  },
+  modelCard:{ backgroundColor:"#fff", width: "100%", height: "40%", borderRadius: 6, padding: 20 }
+});

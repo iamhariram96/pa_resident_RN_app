@@ -1,0 +1,20 @@
+{
+  "version": 3,
+  "artifactType": {
+    "type": "APK",
+    "kind": "Directory"
+  },
+  "applicationId": "com.app.paresident",
+  "variantName": "paresidentRelease",
+  "elements": [
+    {
+      "type": "SINGLE",
+      "filters": [],
+      "attributes": [],
+      "versionCode": 3,
+      "versionName": "0.0.3",
+      "outputFile": "app-paresident-release.apk"
+    }
+  ],
+  "elementType": "File"
+}

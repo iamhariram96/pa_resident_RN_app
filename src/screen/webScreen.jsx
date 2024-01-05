@@ -105,6 +105,7 @@ const WebScreen = (props) => {
     };
 
 
+    console.log(`${Config?.PROJECT_URL}?deviceToken=${diviceToken}`)
     useEffect(() => {
         setWebUrl(`${Config?.PROJECT_URL}?deviceToken=${diviceToken}`)
     }, [diviceToken]);
