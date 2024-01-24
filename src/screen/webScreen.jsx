@@ -11,8 +11,6 @@ import {
 import { WebView } from 'react-native-webview';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import Config from "react-native-config";
-
-import { request, PERMISSIONS, RESULTS } from 'react-native-permissions';
 import Geolocation from '@react-native-community/geolocation';
 
 const INJECTED_JAVASCRIPT = `(function() {
