@@ -91,10 +91,10 @@ const isIOS = Platform.OS === 'ios';
 const { height } = Dimensions.get('window');
 
 const WebScreen = (props) => {
-    const { diviceToken } = props;
+    const { diviceToken,webUrl } = props;
 
-    const [webUrl, setWebUrl] = React.useState(Config?.PROJECT_URL);
-
+    
+console.log(diviceToken,"diviceToken")
     const [location, setLocation] = React.useState({});
     const [status, setStatus] = React.useState(null);
     
@@ -102,11 +102,6 @@ const WebScreen = (props) => {
         console.log('payload asses', payload);
     };
 
-
-    console.log(`${Config?.PROJECT_URL}?deviceToken=${diviceToken}`)
-    useEffect(() => {
-        setWebUrl(`${Config?.PROJECT_URL}?deviceToken=${diviceToken}`)
-    }, [diviceToken]);
 
     const WebviewRender = () => {
         if (webUrl?.length > 0) {

@@ -11,10 +11,11 @@
     "build-rafal": "cp ./.env.rafal ./.env && npx react-native run-android",
     "build-realEsteatePro": "cp ./.env.realEsteatePro ./.env && npx react-native run-android",
     "build-resident": "cp ./.env.resident ./.env && npx react-native run-android",
-    "build-paresident": "cp ./.env.paresident ./.env && npx react-native run-android"
+    "build-paresident": "cp ./.env.paresident ./.env && npx react-native run-android",
+    "build-security": "cp ./.env.security ./.env && npx react-native run-android"
   },
   "dependencies": {
-    "@notifee/react-native": "^7.8.0",
+    "@notifee/react-native": "^7.8.2",
     "@react-native-community/geolocation": "^3.1.0",
     "@react-native-firebase/app": "^18.3.0",
     "@react-native-firebase/messaging": "^18.3.0",
