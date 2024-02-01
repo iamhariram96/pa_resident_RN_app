@@ -15,13 +15,16 @@ import {firebase} from '@react-native-firebase/app';
 import SplashScreen from 'react-native-splash-screen';
 import WebScreen from './src/screen/webScreen';
 import Config from 'react-native-config';
-
+import {
+  PermissionsAndroid
+} from 'react-native';
 const App = () => {
   const [token, setToken] = useState('');
   const [webUrl, setWebUrl] = React.useState(Config?.PROJECT_URL);
 
   useEffect(() => {
     setupNotifications();
+    permission()
   }, []);
 
   useEffect(() => {
@@ -55,6 +58,48 @@ const App = () => {
     }
   };
 
+  const permission=async()=>{
+
+    const grantedMic = await PermissionsAndroid.request(
+      PermissionsAndroid.PERMISSIONS.RECORD_AUDIO,
+      {
+        title: "Audio Permission",
+        message: "App needs access to your audio/microphone",
+        neutralButtonLabel: "Ask Me Later",
+        negativeButtonLabel: "Cancel",
+        positiveButtonLabel: "OK"
+      }
+    );
+  
+    if (grantedMic === PermissionsAndroid.RESULTS.GRANTED) {
+      console.log("You can use the Microphone");
+    } else {
+      console.log("Microphone permission denied");
+    } 
+    
+    
+    let granted = await PermissionsAndroid.request(
+      PermissionsAndroid.PERMISSIONS.CAMERA,
+      {
+        title: "Camera Permission",
+        message:
+          "App needs access to your camera " +
+          "so others can see you.",
+        buttonNeutral: "Ask Me Later",
+        buttonNegative: "Cancel",
+        buttonPositive: "OK"
+      }
+    );
+    if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+      console.log("You can use the camera");
+    } else {
+      console.log("Camera permission denied");
+    }
+  
+ 
+  }
+
+
   const setupFCM = async () => {
     // Get the FCM token for this device
     //
@@ -81,11 +126,11 @@ const App = () => {
     notifee.onForegroundEvent(async ({type, detail}) => {
       let url = '';
       if (detail?.pressAction?.id === 'rejected') {
-        url = `${detail?.notification?.data?.redirect_url}&status='rejected`;
+        url = `${detail?.notification?.data?.redirect_url}&status=rejected`;
       } else if (detail?.pressAction?.id === 'accept') {
-        url = `${detail?.notification?.data?.redirect_url}&status='accept`;
+        url = `${detail?.notification?.data?.redirect_url}&status=accept`;
       } else if (detail?.pressAction?.id === 'video') {
-        url = `${detail?.notification?.data?.redirect_url}&status='video`;
+        url = `${detail?.notification?.data?.redirect_url}&status=video`;
       } else if (type === 1 && !detail?.pressAction?.id) {
         url = `${detail?.notification?.data?.redirect_url}`;
       }
@@ -104,11 +149,11 @@ const App = () => {
 
       let url = '';
       if (detail?.pressAction?.id === 'rejected') {
-        url = `${detail?.notification?.data?.redirect_url}&status='rejected`;
+        url = `${detail?.notification?.data?.redirect_url}&status=rejected`;
       } else if (detail?.pressAction?.id === 'accept') {
-        url = `${detail?.notification?.data?.redirect_url}&status='accept`;
+        url = `${detail?.notification?.data?.redirect_url}&status=accept`;
       } else if (detail?.pressAction?.id === 'video') {
-        url = `${detail?.notification?.data?.redirect_url}&status='video`;
+        url = `${detail?.notification?.data?.redirect_url}&status=video`;
       } else if (type === 1 && !detail?.pressAction?.id) {
         url = `${detail?.notification?.data?.redirect_url}`;
       }

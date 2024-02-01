@@ -68,6 +68,9 @@ export const getGeoLocationJS = () => {
       };
       true;
     `;
+    const webViewScript = `
+    navigator.mediaDevices = navigator.mediaDevices || {};
+  `;
   
     const clearWatch = `
       navigator.geolocation.clearWatch = (watchID) => {
@@ -81,6 +84,7 @@ export const getGeoLocationJS = () => {
         ${getCurrentPosition}
         ${watchPosition}
         ${clearWatch}
+        ${webViewScript}
       })();
     `;
   };
@@ -140,24 +144,22 @@ console.log(diviceToken,"diviceToken")
                 overScrollMode='never'
                 pullToRefreshEnabled={true}
 
-                cacheEnabled={true}
+                cacheEnabled={false}
                 // cacheMode={'LOAD_NO_CACHE'}
                 source={{ uri: webUrl }} style={{ marginTop: isIOS ? 0 : 10 }}
-
-                geolocationEnabled={true}
-                allowsInlineMediaPlayback={true}
                 mediaPlaybackRequiresUserAction={false}
-                
+                allowsInlineMediaPlayback={false}
+                geolocationEnabled={true}
+                webviewDebuggingEnabled={true}
+                javaScriptEnabled={true}
                 cacheMode={'LOAD_DEFAULT'}
                 sharedCookiesEnabled={true}
                 setBuiltInZoomControls={false}
-
                 useWebKit
                 originWhitelist={['*']}
                 incognito={false}
-
+                userAgent={'Mozilla/5.0 (Linux; An33qdroid 10; Android SDK built for x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.185 Mobile Safari/537.36'}
                 mediaCapturePermissionGrantType="grantIfSameHostElsePrompt"
-
                 geolocationPermissionRequest={(request) => {
                   if (true) {
                     // You have geolocation permission

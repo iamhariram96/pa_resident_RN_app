@@ -12,7 +12,7 @@ export const onDisplayNotificationFun = async (data) => {
     id: 'important',
     name: 'Important Notifications 34',
     importance: AndroidImportance.HIGH,
-    sound: "doorbell.wav",
+    sound: "doorbell",
     category: AndroidCategory.CALL,
     visibility: AndroidVisibility.PUBLIC,
     timestamp: Date.now(),
@@ -58,6 +58,10 @@ export const onDisplayNotificationFun = async (data) => {
       title: '<p style="color: #008000;"><b>Allow</b></p>',
       pressAction: { id: 'accept', launchActivity: 'default' },
     },
+    {
+      title: '<p><b>Video</b></p>',
+      pressAction: { id: 'video' },
+    }
   ]
 
   return await notifee.displayNotification({
@@ -86,14 +90,10 @@ export const onDisplayNotificationFun = async (data) => {
         pressAction: { id: 'is_fullscreen', launchActivity: 'default' },
       },
       style: { type: AndroidStyle.BIGPICTURE, picture: bigPicture },
-      actions: data?.data?.is_video_call ? Config.APPNAME === "paresident" ? action.concat([{
-        title: '<p><b>Video</b></p>',
-        pressAction: { id: 'video' },
-      }]
-      ) : action : undefined,
+      actions: action,
     },
     ios: {
-      // sound: "doorbell.wav",
+      sound: "doorbell",
       critical: true,
       interruptionLevel: "critical",
       timestamp: Date.now() - 480000,
