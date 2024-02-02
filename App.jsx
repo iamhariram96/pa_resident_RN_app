@@ -16,8 +16,10 @@ import SplashScreen from 'react-native-splash-screen';
 import WebScreen from './src/screen/webScreen';
 import Config from 'react-native-config';
 import {
-  PermissionsAndroid
-} from 'react-native';
+  requestCameraPermission,
+  requestMicrophonePermission,
+} from './src/utils/accessPermissions';
+
 const App = () => {
   const [token, setToken] = useState('');
   const [webUrl, setWebUrl] = React.useState(Config?.PROJECT_URL);
@@ -58,46 +60,17 @@ const App = () => {
     }
   };
 
-  const permission=async()=>{
-
-    const grantedMic = await PermissionsAndroid.request(
-      PermissionsAndroid.PERMISSIONS.RECORD_AUDIO,
-      {
-        title: "Audio Permission",
-        message: "App needs access to your audio/microphone",
-        neutralButtonLabel: "Ask Me Later",
-        negativeButtonLabel: "Cancel",
-        positiveButtonLabel: "OK"
+  const permission = async () => {
+    const hasCameraAccess = await requestCameraPermission();
+    if(hasCameraAccess){
+      const hasMicrophoneAccess = await requestMicrophonePermission();
+      if (hasMicrophoneAccess) {
+        console.log('You can use the microphone');
+      } else {
+        console.log('Microphone permission denied');
       }
-    );
-  
-    if (grantedMic === PermissionsAndroid.RESULTS.GRANTED) {
-      console.log("You can use the Microphone");
-    } else {
-      console.log("Microphone permission denied");
-    } 
-    
-    
-    let granted = await PermissionsAndroid.request(
-      PermissionsAndroid.PERMISSIONS.CAMERA,
-      {
-        title: "Camera Permission",
-        message:
-          "App needs access to your camera " +
-          "so others can see you.",
-        buttonNeutral: "Ask Me Later",
-        buttonNegative: "Cancel",
-        buttonPositive: "OK"
-      }
-    );
-    if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-      console.log("You can use the camera");
-    } else {
-      console.log("Camera permission denied");
     }
-  
- 
-  }
+  };
 
 
   const setupFCM = async () => {

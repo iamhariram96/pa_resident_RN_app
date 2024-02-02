@@ -60,6 +60,8 @@
 	<string>We use location to show the distance between them and block they are residing in</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Will be only used when a scan happens during a visitor or vehicle enters the premises</string>
+	<key>NSMicrophoneUsageDescription</key>
+  	<string>Allow Security Guard to access your microphone</string>
 	<key>UIBackgroundModes</key>
 	<array/>
 	<key>UILaunchStoryboardName</key>

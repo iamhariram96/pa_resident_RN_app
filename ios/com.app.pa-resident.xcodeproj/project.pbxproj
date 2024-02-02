@@ -10,6 +10,7 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		3F7BAAF0559D2CF7EF3030A9 /* Pods_com_app_pa_resident_com_app_realEsteatePro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C471CCFC4A401649354BBEDE /* Pods_com_app_pa_resident_com_app_realEsteatePro.framework */; };
 		55970ACA2AC71166006C7E50 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		55970ACB2AC71166006C7E50 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		55970AD02AC71166006C7E50 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
@@ -26,22 +27,21 @@
 		55C30ECE2B1880DF008B6A11 /* doorbell.wav in Resources */ = {isa = PBXBuildFile; fileRef = 55C30ECD2B1880DF008B6A11 /* doorbell.wav */; };
 		55C30ECF2B1880DF008B6A11 /* doorbell.wav in Resources */ = {isa = PBXBuildFile; fileRef = 55C30ECD2B1880DF008B6A11 /* doorbell.wav */; };
 		55C30ED02B1880DF008B6A11 /* doorbell.wav in Resources */ = {isa = PBXBuildFile; fileRef = 55C30ECD2B1880DF008B6A11 /* doorbell.wav */; };
-		7DA9B03A2B783E8EAF8D908A /* Pods_com_app_pa_resident.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1A2D77E64FC713F0DCD9CD9 /* Pods_com_app_pa_resident.framework */; };
+		5CDD612B00D517A03C368EE9 /* Pods_com_app_pa_resident.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF514B36475667265CAC38E7 /* Pods_com_app_pa_resident.framework */; };
 		81AB9BB82411601600AC10FF /* ResidentLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* ResidentLaunchScreen.storyboard */; };
-		B84490E4BDBB1C14676B232B /* Pods_com_app_pa_resident_com_app_realEsteatePro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87DA1734E077E9BE08E07E61 /* Pods_com_app_pa_resident_com_app_realEsteatePro.framework */; };
-		BB5D88D30F6F460E42769A7E /* Pods_com_app_pa_resident_com_app_paRafal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4231F9ED279A94CD4CB16095 /* Pods_com_app_pa_resident_com_app_paRafal.framework */; };
+		91E8F8B49BC31790F8735757 /* Pods_com_app_pa_resident_com_app_paRafal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E07345F7898234DEDE4037 /* Pods_com_app_pa_resident_com_app_paRafal.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0AF44F0F683AA2780F02CEC2 /* Pods-com.app.pa-resident-com.app.realEsteatePro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-com.app.pa-resident-com.app.realEsteatePro.release.xcconfig"; path = "Target Support Files/Pods-com.app.pa-resident-com.app.realEsteatePro/Pods-com.app.pa-resident-com.app.realEsteatePro.release.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* com.app.pa-resident.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "com.app.pa-resident.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "com.app.pa-resident/AppDelegate.h"; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = "com.app.pa-resident/AppDelegate.mm"; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "com.app.pa-resident/Images.xcassets"; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "com.app.pa-resident/Info.plist"; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "com.app.pa-resident/main.m"; sourceTree = "<group>"; };
-		1D32A0EECA760BE9B8D878F6 /* Pods-com.app.pa-resident-com.app.paRafal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-com.app.pa-resident-com.app.paRafal.debug.xcconfig"; path = "Target Support Files/Pods-com.app.pa-resident-com.app.paRafal/Pods-com.app.pa-resident-com.app.paRafal.debug.xcconfig"; sourceTree = "<group>"; };
-		4231F9ED279A94CD4CB16095 /* Pods_com_app_pa_resident_com_app_paRafal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_com_app_pa_resident_com_app_paRafal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FB25D47248FA1251F241680 /* Pods-com.app.pa-resident.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-com.app.pa-resident.debug.xcconfig"; path = "Target Support Files/Pods-com.app.pa-resident/Pods-com.app.pa-resident.debug.xcconfig"; sourceTree = "<group>"; };
+		23A7D93435C3B2B9E9B937C3 /* Pods-com.app.pa-resident-com.app.realEsteatePro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-com.app.pa-resident-com.app.realEsteatePro.debug.xcconfig"; path = "Target Support Files/Pods-com.app.pa-resident-com.app.realEsteatePro/Pods-com.app.pa-resident-com.app.realEsteatePro.debug.xcconfig"; sourceTree = "<group>"; };
+		42E07345F7898234DEDE4037 /* Pods_com_app_pa_resident_com_app_paRafal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_com_app_pa_resident_com_app_paRafal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55970AD82AC71166006C7E50 /* com.app.paRafal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = com.app.paRafal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55970AD92AC71166006C7E50 /* com.app.realEsteatePro.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = com.app.realEsteatePro.plist; path = /Volumes/Office/RN/resident_app/ios/com.app.realEsteatePro.plist; sourceTree = "<absolute>"; };
 		55970AEC2AC7120B006C7E50 /* com.app.realEsteatePro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = com.app.realEsteatePro.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,14 +55,14 @@
 		55970AFB2AC72CAD006C7E50 /* RealEsteateProScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RealEsteateProScreen.storyboard; sourceTree = "<group>"; };
 		55970AFD2AC72D2E006C7E50 /* RafalScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RafalScreen.storyboard; sourceTree = "<group>"; };
 		55C30ECD2B1880DF008B6A11 /* doorbell.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = doorbell.wav; sourceTree = "<group>"; };
-		624C0BB8CB08EB85ECC65169 /* Pods-com.app.pa-resident-com.app.paRafal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-com.app.pa-resident-com.app.paRafal.release.xcconfig"; path = "Target Support Files/Pods-com.app.pa-resident-com.app.paRafal/Pods-com.app.pa-resident-com.app.paRafal.release.xcconfig"; sourceTree = "<group>"; };
-		6965A44344A45A9A1EE13174 /* Pods-com.app.pa-resident-com.app.realEsteatePro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-com.app.pa-resident-com.app.realEsteatePro.debug.xcconfig"; path = "Target Support Files/Pods-com.app.pa-resident-com.app.realEsteatePro/Pods-com.app.pa-resident-com.app.realEsteatePro.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* ResidentLaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ResidentLaunchScreen.storyboard; path = "com.app.pa-resident/ResidentLaunchScreen.storyboard"; sourceTree = "<group>"; };
-		83E387E9401D2FCEBD79CE28 /* Pods-com.app.pa-resident.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-com.app.pa-resident.release.xcconfig"; path = "Target Support Files/Pods-com.app.pa-resident/Pods-com.app.pa-resident.release.xcconfig"; sourceTree = "<group>"; };
-		87DA1734E077E9BE08E07E61 /* Pods_com_app_pa_resident_com_app_realEsteatePro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_com_app_pa_resident_com_app_realEsteatePro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A1A2D77E64FC713F0DCD9CD9 /* Pods_com_app_pa_resident.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_com_app_pa_resident.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E5963CBB6AB78CE3AEF1501A /* Pods-com.app.pa-resident.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-com.app.pa-resident.debug.xcconfig"; path = "Target Support Files/Pods-com.app.pa-resident/Pods-com.app.pa-resident.debug.xcconfig"; sourceTree = "<group>"; };
+		C471CCFC4A401649354BBEDE /* Pods_com_app_pa_resident_com_app_realEsteatePro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_com_app_pa_resident_com_app_realEsteatePro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF514B36475667265CAC38E7 /* Pods_com_app_pa_resident.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_com_app_pa_resident.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE7231CAE47D7561360EDA1F /* Pods-com.app.pa-resident-com.app.paRafal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-com.app.pa-resident-com.app.paRafal.release.xcconfig"; path = "Target Support Files/Pods-com.app.pa-resident-com.app.paRafal/Pods-com.app.pa-resident-com.app.paRafal.release.xcconfig"; sourceTree = "<group>"; };
+		E1C5F49363CBEF1E5D2E52F6 /* Pods-com.app.pa-resident-com.app.realEsteatePro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-com.app.pa-resident-com.app.realEsteatePro.release.xcconfig"; path = "Target Support Files/Pods-com.app.pa-resident-com.app.realEsteatePro/Pods-com.app.pa-resident-com.app.realEsteatePro.release.xcconfig"; sourceTree = "<group>"; };
+		EBB85FBA982091A2C2C24B18 /* Pods-com.app.pa-resident-com.app.paRafal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-com.app.pa-resident-com.app.paRafal.debug.xcconfig"; path = "Target Support Files/Pods-com.app.pa-resident-com.app.paRafal/Pods-com.app.pa-resident-com.app.paRafal.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		F1F9250B67D0E5041959B759 /* Pods-com.app.pa-resident.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-com.app.pa-resident.release.xcconfig"; path = "Target Support Files/Pods-com.app.pa-resident/Pods-com.app.pa-resident.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7DA9B03A2B783E8EAF8D908A /* Pods_com_app_pa_resident.framework in Frameworks */,
+				5CDD612B00D517A03C368EE9 /* Pods_com_app_pa_resident.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,7 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB5D88D30F6F460E42769A7E /* Pods_com_app_pa_resident_com_app_paRafal.framework in Frameworks */,
+				91E8F8B49BC31790F8735757 /* Pods_com_app_pa_resident_com_app_paRafal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,7 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B84490E4BDBB1C14676B232B /* Pods_com_app_pa_resident_com_app_realEsteatePro.framework in Frameworks */,
+				3F7BAAF0559D2CF7EF3030A9 /* Pods_com_app_pa_resident_com_app_realEsteatePro.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,9 +113,9 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				A1A2D77E64FC713F0DCD9CD9 /* Pods_com_app_pa_resident.framework */,
-				4231F9ED279A94CD4CB16095 /* Pods_com_app_pa_resident_com_app_paRafal.framework */,
-				87DA1734E077E9BE08E07E61 /* Pods_com_app_pa_resident_com_app_realEsteatePro.framework */,
+				CF514B36475667265CAC38E7 /* Pods_com_app_pa_resident.framework */,
+				42E07345F7898234DEDE4037 /* Pods_com_app_pa_resident_com_app_paRafal.framework */,
+				C471CCFC4A401649354BBEDE /* Pods_com_app_pa_resident_com_app_realEsteatePro.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -194,12 +194,12 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E5963CBB6AB78CE3AEF1501A /* Pods-com.app.pa-resident.debug.xcconfig */,
-				83E387E9401D2FCEBD79CE28 /* Pods-com.app.pa-resident.release.xcconfig */,
-				1D32A0EECA760BE9B8D878F6 /* Pods-com.app.pa-resident-com.app.paRafal.debug.xcconfig */,
-				624C0BB8CB08EB85ECC65169 /* Pods-com.app.pa-resident-com.app.paRafal.release.xcconfig */,
-				6965A44344A45A9A1EE13174 /* Pods-com.app.pa-resident-com.app.realEsteatePro.debug.xcconfig */,
-				0AF44F0F683AA2780F02CEC2 /* Pods-com.app.pa-resident-com.app.realEsteatePro.release.xcconfig */,
+				1FB25D47248FA1251F241680 /* Pods-com.app.pa-resident.debug.xcconfig */,
+				F1F9250B67D0E5041959B759 /* Pods-com.app.pa-resident.release.xcconfig */,
+				EBB85FBA982091A2C2C24B18 /* Pods-com.app.pa-resident-com.app.paRafal.debug.xcconfig */,
+				DE7231CAE47D7561360EDA1F /* Pods-com.app.pa-resident-com.app.paRafal.release.xcconfig */,
+				23A7D93435C3B2B9E9B937C3 /* Pods-com.app.pa-resident-com.app.realEsteatePro.debug.xcconfig */,
+				E1C5F49363CBEF1E5D2E52F6 /* Pods-com.app.pa-resident-com.app.realEsteatePro.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -211,15 +211,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "com.app.pa-resident" */;
 			buildPhases = (
-				C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */,
+				DE491F5DD222E9250106AE7F /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */,
-				E235C05ADACE081382539298 /* [CP] Copy Pods Resources */,
-				1B83336C63A98FC284C5055F /* [CP-User] [RNFB] Core Configuration */,
+				4B5EE8BF48B89093DA64817F /* [CP] Embed Pods Frameworks */,
+				477BBA3B16AB253B9DB57625 /* [CP] Copy Pods Resources */,
+				523205ED7C4C9413D8F9A478 /* [CP-User] [RNFB] Core Configuration */,
 			);
 			buildRules = (
 			);
@@ -234,14 +234,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 55970AD52AC71166006C7E50 /* Build configuration list for PBXNativeTarget "com.app.paRafal" */;
 			buildPhases = (
-				681346F6CB2977288153E1F5 /* [CP] Check Pods Manifest.lock */,
+				3A20B2DB0A94B5E894EA629B /* [CP] Check Pods Manifest.lock */,
 				55970AC82AC71166006C7E50 /* Start Packager */,
 				55970AC92AC71166006C7E50 /* Sources */,
 				55970ACC2AC71166006C7E50 /* Frameworks */,
 				55970ACE2AC71166006C7E50 /* Resources */,
 				55970AD12AC71166006C7E50 /* Bundle React Native code and images */,
-				137996DD5E83D8FE1ED1F476 /* [CP] Embed Pods Frameworks */,
-				92014358AB3F5178212F032C /* [CP] Copy Pods Resources */,
+				9C37D86C2404EBDF7FF8FDFD /* [CP] Embed Pods Frameworks */,
+				CF58FAD02E1A2E7DCB537E25 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -256,14 +256,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 55970AE92AC7120B006C7E50 /* Build configuration list for PBXNativeTarget "com.app.realEsteatePro" */;
 			buildPhases = (
-				0558630710BD392268C35469 /* [CP] Check Pods Manifest.lock */,
+				436F35EA82B84A3C650F51F1 /* [CP] Check Pods Manifest.lock */,
 				55970ADC2AC7120B006C7E50 /* Start Packager */,
 				55970ADD2AC7120B006C7E50 /* Sources */,
 				55970AE02AC7120B006C7E50 /* Frameworks */,
 				55970AE22AC7120B006C7E50 /* Resources */,
 				55970AE52AC7120B006C7E50 /* Bundle React Native code and images */,
-				DB8F64B2F6AED03990670025 /* [CP] Embed Pods Frameworks */,
-				60CB452BEAAF7D9D0479285B /* [CP] Copy Pods Resources */,
+				6AA61F1E626CD8435D36E938 /* [CP] Embed Pods Frameworks */,
+				F553FD6016B6F07D98A4E2D8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -362,24 +362,29 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
-		00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */ = {
+		3A20B2DB0A94B5E894EA629B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-com.app.pa-resident/Pods-com.app.pa-resident-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-com.app.pa-resident/Pods-com.app.pa-resident-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-com.app.pa-resident-com.app.paRafal-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-com.app.pa-resident/Pods-com.app.pa-resident-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		0558630710BD392268C35469 /* [CP] Check Pods Manifest.lock */ = {
+		436F35EA82B84A3C650F51F1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -401,24 +406,41 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		137996DD5E83D8FE1ED1F476 /* [CP] Embed Pods Frameworks */ = {
+		477BBA3B16AB253B9DB57625 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-com.app.pa-resident-com.app.paRafal/Pods-com.app.pa-resident-com.app.paRafal-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-com.app.pa-resident/Pods-com.app.pa-resident-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-com.app.pa-resident-com.app.paRafal/Pods-com.app.pa-resident-com.app.paRafal-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-com.app.pa-resident/Pods-com.app.pa-resident-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-com.app.pa-resident-com.app.paRafal/Pods-com.app.pa-resident-com.app.paRafal-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-com.app.pa-resident/Pods-com.app.pa-resident-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		1B83336C63A98FC284C5055F /* [CP-User] [RNFB] Core Configuration */ = {
+		4B5EE8BF48B89093DA64817F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-com.app.pa-resident/Pods-com.app.pa-resident-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-com.app.pa-resident/Pods-com.app.pa-resident-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-com.app.pa-resident/Pods-com.app.pa-resident-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		523205ED7C4C9413D8F9A478 /* [CP-User] [RNFB] Core Configuration */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -501,46 +523,41 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
-		60CB452BEAAF7D9D0479285B /* [CP] Copy Pods Resources */ = {
+		6AA61F1E626CD8435D36E938 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-com.app.pa-resident-com.app.realEsteatePro/Pods-com.app.pa-resident-com.app.realEsteatePro-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-com.app.pa-resident-com.app.realEsteatePro/Pods-com.app.pa-resident-com.app.realEsteatePro-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-com.app.pa-resident-com.app.realEsteatePro/Pods-com.app.pa-resident-com.app.realEsteatePro-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-com.app.pa-resident-com.app.realEsteatePro/Pods-com.app.pa-resident-com.app.realEsteatePro-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-com.app.pa-resident-com.app.realEsteatePro/Pods-com.app.pa-resident-com.app.realEsteatePro-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-com.app.pa-resident-com.app.realEsteatePro/Pods-com.app.pa-resident-com.app.realEsteatePro-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		681346F6CB2977288153E1F5 /* [CP] Check Pods Manifest.lock */ = {
+		9C37D86C2404EBDF7FF8FDFD /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-com.app.pa-resident-com.app.paRafal/Pods-com.app.pa-resident-com.app.paRafal-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-com.app.pa-resident-com.app.paRafal-checkManifestLockResult.txt",
+				"${PODS_ROOT}/Target Support Files/Pods-com.app.pa-resident-com.app.paRafal/Pods-com.app.pa-resident-com.app.paRafal-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-com.app.pa-resident-com.app.paRafal/Pods-com.app.pa-resident-com.app.paRafal-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		92014358AB3F5178212F032C /* [CP] Copy Pods Resources */ = {
+		CF58FAD02E1A2E7DCB537E25 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -557,7 +574,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-com.app.pa-resident-com.app.paRafal/Pods-com.app.pa-resident-com.app.paRafal-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */ = {
+		DE491F5DD222E9250106AE7F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -579,38 +596,21 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DB8F64B2F6AED03990670025 /* [CP] Embed Pods Frameworks */ = {
+		F553FD6016B6F07D98A4E2D8 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-com.app.pa-resident-com.app.realEsteatePro/Pods-com.app.pa-resident-com.app.realEsteatePro-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-com.app.pa-resident-com.app.realEsteatePro/Pods-com.app.pa-resident-com.app.realEsteatePro-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-com.app.pa-resident-com.app.realEsteatePro/Pods-com.app.pa-resident-com.app.realEsteatePro-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E235C05ADACE081382539298 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-com.app.pa-resident/Pods-com.app.pa-resident-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-com.app.pa-resident-com.app.realEsteatePro/Pods-com.app.pa-resident-com.app.realEsteatePro-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-com.app.pa-resident/Pods-com.app.pa-resident-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-com.app.pa-resident-com.app.realEsteatePro/Pods-com.app.pa-resident-com.app.realEsteatePro-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-com.app.pa-resident/Pods-com.app.pa-resident-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-com.app.pa-resident-com.app.realEsteatePro/Pods-com.app.pa-resident-com.app.realEsteatePro-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -667,7 +667,7 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E5963CBB6AB78CE3AEF1501A /* Pods-com.app.pa-resident.debug.xcconfig */;
+			baseConfigurationReference = 1FB25D47248FA1251F241680 /* Pods-com.app.pa-resident.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
@@ -698,7 +698,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 83E387E9401D2FCEBD79CE28 /* Pods-com.app.pa-resident.release.xcconfig */;
+			baseConfigurationReference = F1F9250B67D0E5041959B759 /* Pods-com.app.pa-resident.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
@@ -727,7 +727,7 @@
 		};
 		55970AD62AC71166006C7E50 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1D32A0EECA760BE9B8D878F6 /* Pods-com.app.pa-resident-com.app.paRafal.debug.xcconfig */;
+			baseConfigurationReference = EBB85FBA982091A2C2C24B18 /* Pods-com.app.pa-resident-com.app.paRafal.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = RafalIcons;
 				CLANG_ENABLE_MODULES = YES;
@@ -757,7 +757,7 @@
 		};
 		55970AD72AC71166006C7E50 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 624C0BB8CB08EB85ECC65169 /* Pods-com.app.pa-resident-com.app.paRafal.release.xcconfig */;
+			baseConfigurationReference = DE7231CAE47D7561360EDA1F /* Pods-com.app.pa-resident-com.app.paRafal.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = RafalIcons;
 				CLANG_ENABLE_MODULES = YES;
@@ -785,7 +785,7 @@
 		};
 		55970AEA2AC7120B006C7E50 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6965A44344A45A9A1EE13174 /* Pods-com.app.pa-resident-com.app.realEsteatePro.debug.xcconfig */;
+			baseConfigurationReference = 23A7D93435C3B2B9E9B937C3 /* Pods-com.app.pa-resident-com.app.realEsteatePro.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = 360Icons;
 				CLANG_ENABLE_MODULES = YES;
@@ -819,7 +819,7 @@
 		};
 		55970AEB2AC7120B006C7E50 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0AF44F0F683AA2780F02CEC2 /* Pods-com.app.pa-resident-com.app.realEsteatePro.release.xcconfig */;
+			baseConfigurationReference = E1C5F49363CBEF1E5D2E52F6 /* Pods-com.app.pa-resident-com.app.realEsteatePro.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = 360Icons;
 				CLANG_ENABLE_MODULES = YES;
