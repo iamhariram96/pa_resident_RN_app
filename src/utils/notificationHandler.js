@@ -10,7 +10,7 @@ export const onDisplayNotificationFun = async (data) => {
 
   const channelId = await notifee.createChannel({
     id: 'important',
-    name: 'Important Notifications 34',
+    name: 'Notification',
     importance: AndroidImportance.HIGH,
     sound: "doorbell",
     category: AndroidCategory.CALL,
@@ -18,7 +18,7 @@ export const onDisplayNotificationFun = async (data) => {
     timestamp: Date.now(),
     showTimestamp: true,
     fullScreenAction: {
-      id: 'fullScreen',
+      id: 'default',
     },
     timestamp: Date.now() - 480000, // 8 minutes ago
   });
@@ -86,8 +86,8 @@ export const onDisplayNotificationFun = async (data) => {
       timestamp: Date.now(), // 8 minutes ago
       color: '#4caf50',
       fullScreenAction: {
-        id: 'fullScreen',
-        pressAction: { id: 'is_fullscreen', launchActivity: 'default' },
+        id: 'default',
+        pressAction: { id: 'default', launchActivity: 'default' },
       },
       style: { type: AndroidStyle.BIGPICTURE, picture: bigPicture },
       actions: action,

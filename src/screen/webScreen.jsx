@@ -97,8 +97,9 @@ const { height } = Dimensions.get('window');
 const WebScreen = (props) => {
     const { diviceToken,webUrl } = props;
 
+    console.log(webUrl,"webUrl")
+
     
-console.log(diviceToken,"diviceToken")
     const [location, setLocation] = React.useState({});
     const [status, setStatus] = React.useState(null);
     

@@ -31,17 +31,16 @@ const Home = ({navigation,route}) => {
   }, []);
 
   useEffect(() => {
-    console.log(route?.params?.data, "sklskslkls");
 
     if(!route?.params?.data){
-        setWebUrl(`${Config?.PROJECT_URL}?deviceToken=${token}`);
+        setWebUrl(`${Config?.PROJECT_URL}?${token ? `deviceToken=${token}`:''}`);
     }
     if(route?.params?.data){
       setWebUrl(route?.params?.data) 
     }
-  }, [token,route?.params?.data]);
+  }, [token]);
 
-
+  
   React.useEffect(() => {
     if (Platform.OS === 'android') {
       // eslint-disable-next-line no-undef
@@ -145,18 +144,15 @@ const Home = ({navigation,route}) => {
       if (url?.length > 0) {
         // setWebUrl(url);
         navigation.navigate("Home",{data:url})
-        // Linking.openURL('myawesomeapp://app')
-
       }
 
       console.log('Notification Press in background:', type);
     });
   };
 
-  console.log(route?.params?.data,"navigation?.params?.url")
   return (
     <>
-      <WebScreen diviceToken={token} webUrl={navigation?.params?.url ?? webUrl} />
+      <WebScreen diviceToken={token} webUrl={webUrl} />
     </>
   );
 };
