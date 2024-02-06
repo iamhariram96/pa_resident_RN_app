@@ -5,6 +5,7 @@ project.ext.envConfigFiles = [
     rafal: ".env.rafal",
     resident: ".env.resident",
     paresident: ".env.resident",
+    tenant: ".env.tenant"
 ]
 
 apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
@@ -115,6 +116,12 @@ android {
         paresident {
             minSdkVersion rootProject.ext.minSdkVersion
             applicationId 'com.app.paresident'
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            resValue "string", "build_config_package", "com.app.pa_resident"
+        }
+        tenant {
+            minSdkVersion rootProject.ext.minSdkVersion
+            applicationId 'com.app.pa_resident'
             targetSdkVersion rootProject.ext.targetSdkVersion
             resValue "string", "build_config_package", "com.app.pa_resident"
         }
