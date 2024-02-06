@@ -26,7 +26,6 @@ const Home = ({navigation,route}) => {
   const [webUrl, setWebUrl] = React.useState(Config?.PROJECT_URL);
 
   useEffect(() => {
-    setupNotifications();
     permission()
   }, []);
 
@@ -40,7 +39,7 @@ const Home = ({navigation,route}) => {
     }
   }, [token]);
 
-  
+
   React.useEffect(() => {
     if (Platform.OS === 'android') {
       // eslint-disable-next-line no-undef
@@ -73,6 +72,7 @@ const Home = ({navigation,route}) => {
     if(hasCameraAccess){
       const hasMicrophoneAccess = await requestMicrophonePermission();
       if (hasMicrophoneAccess) {
+        await setupNotifications()
         console.log('You can use the microphone');
       } else {
         console.log('Microphone permission denied');
