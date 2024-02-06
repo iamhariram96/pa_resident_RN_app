@@ -30,6 +30,15 @@
 		5CDD612B00D517A03C368EE9 /* Pods_com_app_pa_resident.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF514B36475667265CAC38E7 /* Pods_com_app_pa_resident.framework */; };
 		81AB9BB82411601600AC10FF /* ResidentLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* ResidentLaunchScreen.storyboard */; };
 		91E8F8B49BC31790F8735757 /* Pods_com_app_pa_resident_com_app_paRafal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E07345F7898234DEDE4037 /* Pods_com_app_pa_resident_com_app_paRafal.framework */; };
+		AF2829432B7275A700760F94 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
+		AF2829442B7275A700760F94 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		AF28294A2B7275A700760F94 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		AF28294B2B7275A700760F94 /* doorbell.wav in Resources */ = {isa = PBXBuildFile; fileRef = 55C30ECD2B1880DF008B6A11 /* doorbell.wav */; };
+		AF2829552B7275BF00760F94 /* com.app.paTenant-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AF2829542B7275A800760F94 /* com.app.paTenant-Info.plist */; };
+		AF3A512C2B728E5B0091AF07 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AF3A512B2B728E5B0091AF07 /* GoogleService-Info.plist */; };
+		AFB949392B7279E100F724B9 /* LaunchScreenTenant.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFB949382B7279E100F724B9 /* LaunchScreenTenant.storyboard */; };
+		D93654110D0214981ECCD635 /* Pods_com_app_pa_resident_com_app_paTenant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F58D91185A4BD941147560F7 /* Pods_com_app_pa_resident_com_app_paTenant.framework */; };
+		F38EDB48513344C31C38816A /* Pods_com_app_pa_resident.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF514B36475667265CAC38E7 /* Pods_com_app_pa_resident.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,9 +48,11 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "com.app.pa-resident/Images.xcassets"; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "com.app.pa-resident/Info.plist"; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "com.app.pa-resident/main.m"; sourceTree = "<group>"; };
-		1FB25D47248FA1251F241680 /* Pods-com.app.pa-resident.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-com.app.pa-resident.debug.xcconfig"; path = "Target Support Files/Pods-com.app.pa-resident/Pods-com.app.pa-resident.debug.xcconfig"; sourceTree = "<group>"; };
+		1EF370ED82F9E953974CCA9E /* Pods-com.app.pa-resident.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-com.app.pa-resident.debug.xcconfig"; path = "Target Support Files/Pods-com.app.pa-resident/Pods-com.app.pa-resident.debug.xcconfig"; sourceTree = "<group>"; };
 		23A7D93435C3B2B9E9B937C3 /* Pods-com.app.pa-resident-com.app.realEsteatePro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-com.app.pa-resident-com.app.realEsteatePro.debug.xcconfig"; path = "Target Support Files/Pods-com.app.pa-resident-com.app.realEsteatePro/Pods-com.app.pa-resident-com.app.realEsteatePro.debug.xcconfig"; sourceTree = "<group>"; };
 		42E07345F7898234DEDE4037 /* Pods_com_app_pa_resident_com_app_paRafal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_com_app_pa_resident_com_app_paRafal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		43956787AC3C7AAB0060D10C /* Pods-com.app.pa-resident-com.app.paTenant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-com.app.pa-resident-com.app.paTenant.release.xcconfig"; path = "Target Support Files/Pods-com.app.pa-resident-com.app.paTenant/Pods-com.app.pa-resident-com.app.paTenant.release.xcconfig"; sourceTree = "<group>"; };
+		4DE2CDD2D1D384DDB414E72A /* Pods-com.app.pa-resident-com.app.paTenant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-com.app.pa-resident-com.app.paTenant.debug.xcconfig"; path = "Target Support Files/Pods-com.app.pa-resident-com.app.paTenant/Pods-com.app.pa-resident-com.app.paTenant.debug.xcconfig"; sourceTree = "<group>"; };
 		55970AD82AC71166006C7E50 /* com.app.paRafal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = com.app.paRafal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55970AD92AC71166006C7E50 /* com.app.realEsteatePro.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = com.app.realEsteatePro.plist; path = /Volumes/Office/RN/resident_app/ios/com.app.realEsteatePro.plist; sourceTree = "<absolute>"; };
 		55970AEC2AC7120B006C7E50 /* com.app.realEsteatePro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = com.app.realEsteatePro.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,13 +67,18 @@
 		55970AFD2AC72D2E006C7E50 /* RafalScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RafalScreen.storyboard; sourceTree = "<group>"; };
 		55C30ECD2B1880DF008B6A11 /* doorbell.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = doorbell.wav; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* ResidentLaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ResidentLaunchScreen.storyboard; path = "com.app.pa-resident/ResidentLaunchScreen.storyboard"; sourceTree = "<group>"; };
+		A2F7E863AB600746775E58EF /* Pods-com.app.pa-resident.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-com.app.pa-resident.release.xcconfig"; path = "Target Support Files/Pods-com.app.pa-resident/Pods-com.app.pa-resident.release.xcconfig"; sourceTree = "<group>"; };
+		AF2829532B7275A700760F94 /* com.app.paTenant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = com.app.paTenant.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF2829542B7275A800760F94 /* com.app.paTenant-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "com.app.paTenant-Info.plist"; path = "/Users/manoj/Desktop/Projects/PA/pa_resident_RN_app/ios/com.app.paTenant-Info.plist"; sourceTree = "<absolute>"; };
+		AF3A512B2B728E5B0091AF07 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AFB949382B7279E100F724B9 /* LaunchScreenTenant.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreenTenant.storyboard; sourceTree = "<group>"; };
 		C471CCFC4A401649354BBEDE /* Pods_com_app_pa_resident_com_app_realEsteatePro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_com_app_pa_resident_com_app_realEsteatePro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF514B36475667265CAC38E7 /* Pods_com_app_pa_resident.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_com_app_pa_resident.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE7231CAE47D7561360EDA1F /* Pods-com.app.pa-resident-com.app.paRafal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-com.app.pa-resident-com.app.paRafal.release.xcconfig"; path = "Target Support Files/Pods-com.app.pa-resident-com.app.paRafal/Pods-com.app.pa-resident-com.app.paRafal.release.xcconfig"; sourceTree = "<group>"; };
 		E1C5F49363CBEF1E5D2E52F6 /* Pods-com.app.pa-resident-com.app.realEsteatePro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-com.app.pa-resident-com.app.realEsteatePro.release.xcconfig"; path = "Target Support Files/Pods-com.app.pa-resident-com.app.realEsteatePro/Pods-com.app.pa-resident-com.app.realEsteatePro.release.xcconfig"; sourceTree = "<group>"; };
 		EBB85FBA982091A2C2C24B18 /* Pods-com.app.pa-resident-com.app.paRafal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-com.app.pa-resident-com.app.paRafal.debug.xcconfig"; path = "Target Support Files/Pods-com.app.pa-resident-com.app.paRafal/Pods-com.app.pa-resident-com.app.paRafal.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		F1F9250B67D0E5041959B759 /* Pods-com.app.pa-resident.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-com.app.pa-resident.release.xcconfig"; path = "Target Support Files/Pods-com.app.pa-resident/Pods-com.app.pa-resident.release.xcconfig"; sourceTree = "<group>"; };
+		F58D91185A4BD941147560F7 /* Pods_com_app_pa_resident_com_app_paTenant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_com_app_pa_resident_com_app_paTenant.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +87,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CDD612B00D517A03C368EE9 /* Pods_com_app_pa_resident.framework in Frameworks */,
+				F38EDB48513344C31C38816A /* Pods_com_app_pa_resident.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +107,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AF2829452B7275A700760F94 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D93654110D0214981ECCD635 /* Pods_com_app_pa_resident_com_app_paTenant.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -105,6 +130,7 @@
 				13B07FB71A68108700A75B9A /* main.m */,
 				55970AFB2AC72CAD006C7E50 /* RealEsteateProScreen.storyboard */,
 				55970AFD2AC72D2E006C7E50 /* RafalScreen.storyboard */,
+				AFB949382B7279E100F724B9 /* LaunchScreenTenant.storyboard */,
 			);
 			name = "com.app.pa-resident";
 			sourceTree = "<group>";
@@ -116,6 +142,7 @@
 				CF514B36475667265CAC38E7 /* Pods_com_app_pa_resident.framework */,
 				42E07345F7898234DEDE4037 /* Pods_com_app_pa_resident_com_app_paRafal.framework */,
 				C471CCFC4A401649354BBEDE /* Pods_com_app_pa_resident_com_app_realEsteatePro.framework */,
+				F58D91185A4BD941147560F7 /* Pods_com_app_pa_resident_com_app_paTenant.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -123,6 +150,7 @@
 		55970AF12AC715D9006C7E50 /* GoogleService */ = {
 			isa = PBXGroup;
 			children = (
+				AF3A51282B728CB80091AF07 /* tenant */,
 				55970AF42AC7281F006C7E50 /* resident */,
 				55970AF32AC727FD006C7E50 /* realEsteatePro */,
 				55970AF22AC727D0006C7E50 /* rafal */,
@@ -175,6 +203,7 @@
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
 				55970AD92AC71166006C7E50 /* com.app.realEsteatePro.plist */,
 				55970AED2AC7120B006C7E50 /* com.app.paRafal.plist */,
+				AF2829542B7275A800760F94 /* com.app.paTenant-Info.plist */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -187,19 +216,30 @@
 				13B07F961A680F5B00A75B9A /* com.app.pa-resident.app */,
 				55970AD82AC71166006C7E50 /* com.app.paRafal.app */,
 				55970AEC2AC7120B006C7E50 /* com.app.realEsteatePro.app */,
+				AF2829532B7275A700760F94 /* com.app.paTenant.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		AF3A51282B728CB80091AF07 /* tenant */ = {
+			isa = PBXGroup;
+			children = (
+				AF3A512B2B728E5B0091AF07 /* GoogleService-Info.plist */,
+			);
+			path = tenant;
 			sourceTree = "<group>";
 		};
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				1FB25D47248FA1251F241680 /* Pods-com.app.pa-resident.debug.xcconfig */,
-				F1F9250B67D0E5041959B759 /* Pods-com.app.pa-resident.release.xcconfig */,
 				EBB85FBA982091A2C2C24B18 /* Pods-com.app.pa-resident-com.app.paRafal.debug.xcconfig */,
 				DE7231CAE47D7561360EDA1F /* Pods-com.app.pa-resident-com.app.paRafal.release.xcconfig */,
 				23A7D93435C3B2B9E9B937C3 /* Pods-com.app.pa-resident-com.app.realEsteatePro.debug.xcconfig */,
 				E1C5F49363CBEF1E5D2E52F6 /* Pods-com.app.pa-resident-com.app.realEsteatePro.release.xcconfig */,
+				1EF370ED82F9E953974CCA9E /* Pods-com.app.pa-resident.debug.xcconfig */,
+				A2F7E863AB600746775E58EF /* Pods-com.app.pa-resident.release.xcconfig */,
+				4DE2CDD2D1D384DDB414E72A /* Pods-com.app.pa-resident-com.app.paTenant.debug.xcconfig */,
+				43956787AC3C7AAB0060D10C /* Pods-com.app.pa-resident-com.app.paTenant.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -274,6 +314,28 @@
 			productReference = 55970AEC2AC7120B006C7E50 /* com.app.realEsteatePro.app */;
 			productType = "com.apple.product-type.application";
 		};
+		AF28293F2B7275A700760F94 /* com.app.paTenant */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AF2829502B7275A700760F94 /* Build configuration list for PBXNativeTarget "com.app.paTenant" */;
+			buildPhases = (
+				9AA73F3E88755FFD331BFC74 /* [CP] Check Pods Manifest.lock */,
+				AF2829412B7275A700760F94 /* Start Packager */,
+				AF2829422B7275A700760F94 /* Sources */,
+				AF2829452B7275A700760F94 /* Frameworks */,
+				AF2829472B7275A700760F94 /* Resources */,
+				AF28294C2B7275A700760F94 /* Bundle React Native code and images */,
+				8CC15FCA1E5FA46C5A1F495D /* [CP] Embed Pods Frameworks */,
+				562998CC004184DF6DD25E08 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = com.app.paTenant;
+			productName = "com.app.pa-resident";
+			productReference = AF2829532B7275A700760F94 /* com.app.paTenant.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -303,6 +365,7 @@
 				13B07F861A680F5B00A75B9A /* com.app.pa-resident */,
 				55970AC62AC71166006C7E50 /* com.app.paRafal */,
 				55970ADA2AC7120B006C7E50 /* com.app.realEsteatePro */,
+				AF28293F2B7275A700760F94 /* com.app.paTenant */,
 			);
 		};
 /* End PBXProject section */
@@ -340,6 +403,18 @@
 				55970B012AC72E18006C7E50 /* com.app.realEsteatePro.plist in Resources */,
 				55970AE42AC7120B006C7E50 /* Images.xcassets in Resources */,
 				55C30ED02B1880DF008B6A11 /* doorbell.wav in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF2829472B7275A700760F94 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF2829552B7275BF00760F94 /* com.app.paTenant-Info.plist in Resources */,
+				AFB949392B7279E100F724B9 /* LaunchScreenTenant.storyboard in Resources */,
+				AF28294A2B7275A700760F94 /* Images.xcassets in Resources */,
+				AF28294B2B7275A700760F94 /* doorbell.wav in Resources */,
+				AF3A512C2B728E5B0091AF07 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,6 +598,23 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
+		562998CC004184DF6DD25E08 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-com.app.pa-resident-com.app.paTenant/Pods-com.app.pa-resident-com.app.paTenant-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-com.app.pa-resident-com.app.paTenant/Pods-com.app.pa-resident-com.app.paTenant-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-com.app.pa-resident-com.app.paTenant/Pods-com.app.pa-resident-com.app.paTenant-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		6AA61F1E626CD8435D36E938 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -538,6 +630,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-com.app.pa-resident-com.app.realEsteatePro/Pods-com.app.pa-resident-com.app.realEsteatePro-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8CC15FCA1E5FA46C5A1F495D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-com.app.pa-resident-com.app.paTenant/Pods-com.app.pa-resident-com.app.paTenant-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-com.app.pa-resident-com.app.paTenant/Pods-com.app.pa-resident-com.app.paTenant-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-com.app.pa-resident-com.app.paTenant/Pods-com.app.pa-resident-com.app.paTenant-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9AA73F3E88755FFD331BFC74 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-com.app.pa-resident-com.app.paTenant-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9C37D86C2404EBDF7FF8FDFD /* [CP] Embed Pods Frameworks */ = {
@@ -556,6 +687,41 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-com.app.pa-resident-com.app.paRafal/Pods-com.app.pa-resident-com.app.paRafal-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		AF2829412B7275A700760F94 /* Start Packager */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Start Packager";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\necho \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > \"${SRCROOT}/../node_modules/react-native/scripts/.packager.env\"\nif [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\n  if nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\n    if ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\n      echo \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\n      exit 2\n    fi\n  else\n    open \"$SRCROOT/../node_modules/react-native/scripts/launchPackager.command\" || echo \"Can't start packager automatically\"\n  fi\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		AF28294C2B7275A700760F94 /* Bundle React Native code and images */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/.xcode.env.local",
+				"$(SRCROOT)/.xcode.env",
+			);
+			name = "Bundle React Native code and images";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
 		CF58FAD02E1A2E7DCB537E25 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -662,12 +828,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AF2829422B7275A700760F94 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF2829432B7275A700760F94 /* AppDelegate.mm in Sources */,
+				AF2829442B7275A700760F94 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1FB25D47248FA1251F241680 /* Pods-com.app.pa-resident.debug.xcconfig */;
+			baseConfigurationReference = 1EF370ED82F9E953974CCA9E /* Pods-com.app.pa-resident.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
@@ -698,7 +873,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F1F9250B67D0E5041959B759 /* Pods-com.app.pa-resident.release.xcconfig */;
+			baseConfigurationReference = A2F7E863AB600746775E58EF /* Pods-com.app.pa-resident.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
@@ -1004,6 +1179,66 @@
 			};
 			name = Release;
 		};
+		AF2829512B7275A700760F94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4DE2CDD2D1D384DDB414E72A /* Pods-com.app.pa-resident-com.app.paTenant.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconTenant;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "com.app.pa-resident/com.app.pa-resident.entitlements";
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Q92NY88HWM;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = "com.app.paTenant-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.app.pa-tenant";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		AF2829522B7275A700760F94 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 43956787AC3C7AAB0060D10C /* Pods-com.app.pa-resident-com.app.paTenant.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconTenant;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "com.app.pa-resident/com.app.pa-resident.entitlements";
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Q92NY88HWM;
+				INFOPLIST_FILE = "com.app.paTenant-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.app.pa-tenant";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1039,6 +1274,15 @@
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
 				83CBBA211A601CBA00E9B192 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AF2829502B7275A700760F94 /* Build configuration list for PBXNativeTarget "com.app.paTenant" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF2829512B7275A700760F94 /* Debug */,
+				AF2829522B7275A700760F94 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
