@@ -10,6 +10,4 @@ import HeadlessTask from './src/utils/HeadlessTask';
 AppRegistry.registerHeadlessTask('RNFirebaseBackgroundNotificationAction', HeadlessTask);
 AppRegistry.registerHeadlessTask('RNFirebaseBackgroundMessage', () => HeadlessTask);
 
-
-
 AppRegistry.registerComponent(appName, () => App);
