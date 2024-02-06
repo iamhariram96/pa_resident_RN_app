@@ -6,7 +6,6 @@ import Config from 'react-native-config';
 export const onDisplayNotificationFun = async (data) => {
   // Create a channel (required for Android)
 
-  console.log(JSON.stringify(data),"data")
 
   const channelId = await notifee.createChannel({
     id: 'important',
@@ -48,6 +47,13 @@ export const onDisplayNotificationFun = async (data) => {
   }
 
   await notifee.cancelDisplayedNotification(data?.messageId);
+
+
+  const destroyAfterMillis = 30000; // 30 seconds
+  setTimeout(async () => {
+    await notifee.cancelNotification(data?.messageId);
+  }, destroyAfterMillis);
+
 
   let action = [
     {
