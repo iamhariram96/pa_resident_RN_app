@@ -19,15 +19,11 @@ import {
   requestCameraPermission,
   requestMicrophonePermission,
 } from './src/utils/accessPermissions';
+import {Platform} from 'react-native';
 
 const App = () => {
   const [token, setToken] = useState('');
   const [webUrl, setWebUrl] = React.useState(Config?.PROJECT_URL);
-
-  useEffect(() => {
-    setupNotifications();
-    permission()
-  }, []);
 
   useEffect(() => {
     setWebUrl(`${Config?.PROJECT_URL}?deviceToken=${token}`);
@@ -60,9 +56,15 @@ const App = () => {
     }
   };
 
+  useEffect(() => {
+    setupNotifications();
+    permission();
+    // eslint-disable-next-line no-undef, react-hooks/exhaustive-deps
+  }, []);
+
   const permission = async () => {
     const hasCameraAccess = await requestCameraPermission();
-    if(hasCameraAccess){
+    if (hasCameraAccess) {
       const hasMicrophoneAccess = await requestMicrophonePermission();
       if (hasMicrophoneAccess) {
         console.log('You can use the microphone');
@@ -71,7 +73,6 @@ const App = () => {
       }
     }
   };
-
 
   const setupFCM = async () => {
     // Get the FCM token for this device
@@ -118,8 +119,6 @@ const App = () => {
 
     // For handling notification press events in the background
     notifee.onBackgroundEvent(async ({type, detail}) => {
-
-
       let url = '';
       if (detail?.pressAction?.id === 'rejected') {
         url = `${detail?.notification?.data?.redirect_url}&status=rejected`;

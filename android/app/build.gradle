@@ -5,7 +5,8 @@ project.ext.envConfigFiles = [
     rafal: ".env.rafal",
     resident: ".env.resident",
     paresident: ".env.resident",
-    tenant: ".env.tenant"
+    tenant: ".env.tenant",
+    lifestyle:".env.lifestyle"
 ]
 
 apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
@@ -95,6 +96,12 @@ android {
 
     flavorDimensions "default"
     productFlavors {
+        lifestyle {
+            minSdkVersion rootProject.ext.minSdkVersion
+            applicationId 'com.app.palifestyle'
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            resValue "string", "build_config_package", "com.app.palifestyle"
+        }
         realesteatepro {
             minSdkVersion rootProject.ext.minSdkVersion
             applicationId 'com.app.paRealEsteatePro'
