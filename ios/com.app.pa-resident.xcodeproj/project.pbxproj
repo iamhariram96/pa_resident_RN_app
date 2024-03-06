@@ -36,6 +36,11 @@
 		AF229BFD2B97AF0C002EE701 /* LifestyleLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF229BFC2B97AF0C002EE701 /* LifestyleLaunchScreen.storyboard */; };
 		AF229BFE2B981F57002EE701 /* com.app.paLifestyle-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AF229BEE2B97530B002EE701 /* com.app.paLifestyle-Info.plist */; };
 		AF229BFF2B982F55002EE701 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		AF229C002B9842D5002EE701 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		AF229C012B9842DE002EE701 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		AF229C022B9842F9002EE701 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		AF229C032B984301002EE701 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		AF229C052B985000002EE701 /* screen.png in Resources */ = {isa = PBXBuildFile; fileRef = AF229C042B985000002EE701 /* screen.png */; };
 		AF2829432B7275A700760F94 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		AF2829442B7275A700760F94 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		AF28294B2B7275A700760F94 /* doorbell.wav in Resources */ = {isa = PBXBuildFile; fileRef = 55C30ECD2B1880DF008B6A11 /* doorbell.wav */; };
@@ -77,6 +82,7 @@
 		AF229BEE2B97530B002EE701 /* com.app.paLifestyle-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "com.app.paLifestyle-Info.plist"; path = "/Users/manoj/Desktop/Projects/PA/pa_resident_RN_app/ios/com.app.paLifestyle-Info.plist"; sourceTree = "<absolute>"; };
 		AF229BF42B979D73002EE701 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AF229BFC2B97AF0C002EE701 /* LifestyleLaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LifestyleLaunchScreen.storyboard; sourceTree = "<group>"; };
+		AF229C042B985000002EE701 /* screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screen.png; sourceTree = "<group>"; };
 		AF2829532B7275A700760F94 /* com.app.paTenant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = com.app.paTenant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF2829542B7275A800760F94 /* com.app.paTenant-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "com.app.paTenant-Info.plist"; path = "/Users/manoj/Desktop/Projects/PA/pa_resident_RN_app/ios/com.app.paTenant-Info.plist"; sourceTree = "<absolute>"; };
 		AF3A512B2B728E5B0091AF07 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -139,6 +145,7 @@
 		13B07FAE1A68108700A75B9A /* com.app.pa-resident */ = {
 			isa = PBXGroup;
 			children = (
+				AF229C042B985000002EE701 /* screen.png */,
 				55970AEE2AC71581006C7E50 /* com.app.pa-resident.entitlements */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
@@ -429,6 +436,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF229C002B9842D5002EE701 /* Images.xcassets in Resources */,
 				55970AFA2AC72C60006C7E50 /* GoogleService-Info.plist in Resources */,
 				81AB9BB82411601600AC10FF /* ResidentLaunchScreen.storyboard in Resources */,
 				55C30ECE2B1880DF008B6A11 /* doorbell.wav in Resources */,
@@ -439,6 +447,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF229C012B9842DE002EE701 /* Images.xcassets in Resources */,
 				55970AF62AC72BFF006C7E50 /* GoogleService-Info.plist in Resources */,
 				55970B022AC72E1B006C7E50 /* com.app.paRafal.plist in Resources */,
 				55970AFE2AC72D2E006C7E50 /* RafalScreen.storyboard in Resources */,
@@ -450,6 +459,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF229C022B9842F9002EE701 /* Images.xcassets in Resources */,
 				55970AF82AC72C37006C7E50 /* GoogleService-Info.plist in Resources */,
 				55970AFF2AC72D3B006C7E50 /* RealEsteateProScreen.storyboard in Resources */,
 				55970B012AC72E18006C7E50 /* com.app.realEsteatePro.plist in Resources */,
@@ -462,6 +472,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF229BFE2B981F57002EE701 /* com.app.paLifestyle-Info.plist in Resources */,
+				AF229C052B985000002EE701 /* screen.png in Resources */,
 				AF229BFF2B982F55002EE701 /* Images.xcassets in Resources */,
 				AF229BF52B979D73002EE701 /* GoogleService-Info.plist in Resources */,
 				AF229BFD2B97AF0C002EE701 /* LifestyleLaunchScreen.storyboard in Resources */,
@@ -473,6 +484,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF229C032B984301002EE701 /* Images.xcassets in Resources */,
 				AF2829552B7275BF00760F94 /* com.app.paTenant-Info.plist in Resources */,
 				AFB949392B7279E100F724B9 /* LaunchScreenTenant.storyboard in Resources */,
 				AF28294B2B7275A700760F94 /* doorbell.wav in Resources */,
