@@ -100,9 +100,7 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             applicationId 'com.app.palifestyle'
             targetSdkVersion rootProject.ext.targetSdkVersion
-            resValue "string", "build_config_package", "com.app.pa_resident"
-            versionCode 1
-            versionName "0.0.1"
+            resValue "string", "build_config_package", "com.app.palifestyle"
         }
         realesteatepro {
             minSdkVersion rootProject.ext.minSdkVersion
@@ -120,13 +118,17 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             applicationId 'com.app.pa_resident'
             targetSdkVersion rootProject.ext.targetSdkVersion
-            resValue "string", "build_config_package", "com.app.pa_resident"
+            resValue "string", "build_config_package", "com.app.pa_resident",
+             versionCode 5
+             versionName "0.0.5"
         }
         paresident {
             minSdkVersion rootProject.ext.minSdkVersion
             applicationId 'com.app.paresident'
             targetSdkVersion rootProject.ext.targetSdkVersion
-            resValue "string", "build_config_package", "com.app.pa_resident"
+            resValue "string", "build_config_package", "com.app.pa_resident",
+            versionCode 5
+             versionName "0.0.5"
         }
         tenant {
             minSdkVersion rootProject.ext.minSdkVersion

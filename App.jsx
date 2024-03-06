@@ -15,11 +15,13 @@ import {firebase} from '@react-native-firebase/app';
 import SplashScreen from 'react-native-splash-screen';
 import WebScreen from './src/screen/webScreen';
 import Config from 'react-native-config';
+// import { myAppVersionName } from './android/app/build.gradle';
 import {
   requestCameraPermission,
   requestMicrophonePermission,
 } from './src/utils/accessPermissions';
-import {Platform} from 'react-native';
+import {Alert, Linking, Platform} from 'react-native';
+import DeviceInfo from 'react-native-device-info';
 
 const App = () => {
   const [token, setToken] = useState('');
@@ -34,6 +36,7 @@ const App = () => {
       // eslint-disable-next-line no-undef
       SplashScreen.hide();
     }
+    getVersion();
   }, []);
 
   const setupNotifications = async () => {
@@ -62,6 +65,43 @@ const App = () => {
     // eslint-disable-next-line no-undef, react-hooks/exhaustive-deps
   }, []);
 
+  const getVersion = () => {
+    fetch(
+      `https://dev-auth.propertyautomate.com/api/v1/version_control/get_version`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({build: Config.BUILD_CODE}),
+      },
+    )
+      .then(response => {
+        // Check if the response status is OK (status code 200-299)
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        // Parse the response as JSON
+        return response.json();
+      })
+      .then(data => {
+        // Handle the data from the successful response
+        const current_version = DeviceInfo.getVersion();
+        let app_version_data = data?.data?.version_data?.find(
+          i => i?.build_code === Config.BUILD_CODE,
+        );
+        if (app_version_data?.app_version_data !== current_version) {
+          showVersionAlert({
+            new_version: app_version_data?.app_version,
+            priority: app_version_data?.version_priority,
+          });
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
   const permission = async () => {
     const hasCameraAccess = await requestCameraPermission();
     if (hasCameraAccess) {
@@ -72,6 +112,43 @@ const App = () => {
         console.log('Microphone permission denied');
       }
     }
+  };
+
+  const openPlayStore = () => {
+    let url;
+    if (Platform.OS === 'android') {
+      url = `http://play.google.com/store/apps/details?id=${DeviceInfo.getBundleId()}`;
+    } else if (Platform.OS === 'ios') {
+      url = `itms-apps://itunes.apple.com/app/${DeviceInfo.getBundleId()}`;
+    }
+
+    // Use Linking to open the Play Store URL
+    Linking.openURL(url).catch(err =>
+      console.error('Error opening Play Store:', err),
+    );
+  };
+
+  const showVersionAlert = ({new_version, priority}) => {
+    let buttons = [
+      {
+        text: 'Update Now',
+        onPress: () => openPlayStore(),
+      },
+    ];
+    if (priority !== 'High') {
+      buttons.push({
+        text: 'Remaind Me Later',
+        onPress: () => console.log('OK Pressed'),
+        style: 'cancel',
+      });
+    }
+
+    Alert.alert(
+      'Update Available',
+      `A newer version is available - v${new_version}`,
+      buttons,
+      {cancelable: false},
+    );
   };
 
   const setupFCM = async () => {
