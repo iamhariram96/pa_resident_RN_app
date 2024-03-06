@@ -100,7 +100,9 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             applicationId 'com.app.palifestyle'
             targetSdkVersion rootProject.ext.targetSdkVersion
-            resValue "string", "build_config_package", "com.app.palifestyle"
+            resValue "string", "build_config_package", "com.app.pa_resident"
+            versionCode 1
+            versionName "0.0.1"
         }
         realesteatepro {
             minSdkVersion rootProject.ext.minSdkVersion

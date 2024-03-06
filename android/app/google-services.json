@@ -331,6 +331,42 @@
     },
     {
       "client_info": {
+        "mobilesdk_app_id": "1:1085668111692:android:6a530be76eb1e601ff0be9",
+        "android_client_info": {
+          "package_name": "com.app.palifestyle"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1085668111692-65gfcu2iikk1tuocg1kqehjhsah20nrj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOD3o0QKMxFRJlvJ7cbL8ZwBndtrGxiaY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1085668111692-65gfcu2iikk1tuocg1kqehjhsah20nrj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1085668111692-en97v0d8t0gla2ml84vjj966ttkrju8f.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.app.pa-resident"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:1085668111692:android:aea804043c7ca9c1ff0be9",
         "android_client_info": {
           "package_name": "com.app.paresident"
