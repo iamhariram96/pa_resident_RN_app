@@ -36,7 +36,7 @@ const App = () => {
       // eslint-disable-next-line no-undef
       SplashScreen.hide();
     }
-    getVersion();
+    // getVersion();
   }, []);
 
   const setupNotifications = async () => {

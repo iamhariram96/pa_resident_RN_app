@@ -59,7 +59,7 @@
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>We use location to show the distance between them and block they are residing in</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>Allow Security Guard to access your microphone</string>
+	<string>We use the microphone permission to allow the security guard of the property to check with resident whether to let the visitor inside the property or not</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Will be only used when a scan happens during a visitor or vehicle enters the premises</string>
 	<key>UIBackgroundModes</key>
