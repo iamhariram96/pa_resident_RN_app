@@ -6,7 +6,8 @@ import {
     Text,
     Platform,
     View,
-    Dimensions
+    Dimensions,
+    Linking
 } from 'react-native';
 import { WebView } from 'react-native-webview';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
@@ -169,6 +170,16 @@ console.log(diviceToken,"diviceToken")
                     request.deny();
                   }
                 }}
+                onShouldStartLoadWithRequest={(event) => {
+                  const { url } = event;
+                  if (url.startsWith('tel:')) {
+                    // Intercept tel:// URLs and initiate phone calls
+                    Linking.openURL(url);
+                    return false; // Prevent the WebView from loading the URL
+                  }
+                  return true; // Allow other URLs to be loaded by the WebView
+                }}
+
             />
         } else {
             return <ActivityIndicator size="large" />
