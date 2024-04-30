@@ -179,6 +179,7 @@ console.log(diviceToken,"diviceToken")
                   }
                   return true; // Allow other URLs to be loaded by the WebView
                 }}
+
             />
         } else {
             return <ActivityIndicator size="large" />
